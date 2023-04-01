@@ -1,0 +1,25 @@
+{# templates/report.markdown.twig #}
+
+{% extends('base.html.twig') %}
+
+{% block title %}Report{% endblock %}
+
+{% block content %}
+    <div class="main-title">
+        <h1>Redovisning</h1>
+    </div>
+    <div class="main-content">
+        {% for item in content %}
+            {{ item.content | raw }}
+        {% endfor %}
+    </div>
+    <div class="main-side">
+        <ul class="main-side-nav">
+            {% for item in content %}
+                <li>
+                    <a href="#{{ item.name }}">{{ item.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

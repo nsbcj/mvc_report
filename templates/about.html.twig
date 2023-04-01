@@ -1,0 +1,20 @@
+{# templates/about.html.twig #}
+
+{% extends('base.html.twig') %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+    <div class="main-title">
+        <h1>Om MVC-sidan</h1>
+    </div>
+    <div class="main-content">
+        <p>Kursen är inriktad på programmering med hjälp av klasser och objekt. Detta görs i ramverket Symfony som baseras på PHP. Grunden i MVC uppfattas bygga på användande av Controllers, som styr routes och funktionalitet. Den information som skickas
+            till rutterna kan sedan renderas med hjälp av vyer. Vyerna är skrivna i Twig-templatefiler.</p>
+
+        <p>Under kursens gång kommer bland annat testning och databaser inkluderas.</p>
+    </div>
+    <div class="main-side">
+        <img src="{{ asset ("/img/leaf_256x256.png") }}" alt="Bild kunde inte laddas">
+    </div>
+{% endblock %}

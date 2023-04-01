@@ -1,0 +1,46 @@
+.card-wrapper {
+    margin-inline: auto;
+    width: 100px;
+    height: 300px;
+    position: relative;
+}
+
+.card-number {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    font-size: 7rem;
+    width: 200px;
+    height: 300px;
+    background-color:rgb(218, 218, 218);
+    color: rgb(62, 62, 62);
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 3px;
+    box-shadow: 0 10px 10px -5px;
+    span {
+        display: inline-block;
+    }
+}
+
+.lucky {
+    visibility: collapse;
+}
+
+.card-animation {
+    animation-name: card-flip;
+    animation-duration: 1s;
+    animation-timing-function: step-end();
+}
+
+@keyframes card-flip {
+    from {
+        transform: perspective(1000px) rotateX(0deg);
+        transform-origin: bottom;
+        transform-style: preserve-3d;
+    }
+    to {
+        transform: perspective(1000px) rotateX(-90deg);
+        transform-origin: bottom;
+        transform-style: preserve-3d;
+    }
+}

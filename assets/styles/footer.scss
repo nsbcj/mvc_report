@@ -1,0 +1,16 @@
+footer {
+    grid-area: footer;
+}
+
+.footer-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(59, 64, 63);
+    color: rgb(223, 221, 228);
+    padding: 1rem;
+    p {
+        font-size: 1rem;
+        margin-bottom: 0;
+    }
+}
