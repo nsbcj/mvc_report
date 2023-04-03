@@ -5,7 +5,7 @@ Objekt-konstruktioner har använts i tidigare kurser. Konceptet objektorienterin
 ###PHP:s modell för klasser och objekt
 Det grundläggande är att varje ny instans av en klass, skapar ett objekt. En klass innehåller medlemsvariabler (properties) och metoder. Vid skapande av ett objekt utifrån en klass, skapas alltid specificerade properties och metoder i objektet. Det finns likheter med klasser i andra språk jag läst, framförallt med Python. En instans av en klass kan skapas med hjälp av en konstruktor, som möjliggör att properties tillhörande en ny instans kan skapas vid instansieringen. En annan del som känns igen är att medlemsvariabler och metoder kan vara publika eller privata. Privata delar kan inte nås på samma sätt som publika. Syftet med detta är att inte visa de delar av klassen som användare inte ska kunna påverka.
 
-###Kodbas, koder, strukturen i uppgiften me/report
+###Kodbas, koden, strukturen i uppgiften me/report
 Det tog tid att komma igång med uppgiften. Jag har inte  någon erfarenhet av Symfony. Jag läste en del manualer för att få delarna på plats, mestadels rörande användande av Markdown och JavaScript.
 
 Gällande användande av controllers och vyer gick det ganska smidigt att förstå konceptet. Det nya var framförallt användande av namespace och syntaxen gällande routes. I övrigt, avseende strukturen i Symfony, känns det som att det finns mycket att läsa om. Det krävdes en del att förstå de grundläggande delarna, men jag hoppas att det blir tydligare under kursens gång. Bara att få JavaScript och Markdown att fungera på önskat sätt var en utmaning.
@@ -18,4 +18,4 @@ Gällande användande av controllers och vyer gick det ganska smidigt att först
 
  En fördel med att det varit lite komplicerat att komma igång med JavaScript-delarna har varit att jag börjar få koll på hur npm används i Symfony. När npm var igång kändes det ganska smidigt att göra stylen i ```.scss```-filer.
 
- Det ska framöver bli intressant att arbeta vidare med PHP:
+ Det ska framöver bli intressant att arbeta vidare med PHP.
