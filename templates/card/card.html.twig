@@ -10,7 +10,10 @@
 </div>
 
 <div class="main-content">
-    <p>På denna sida kommer en kortlek att visas.</p>
+    <p>Uppgiften har lösts genom användande av fyra klasser; Card, CardGraphic, DeckOfCards och CardHand. Basen utgörs av klassen Card, som skapar ett kort utifrån en typ (hearts, diamonds, spades eller clubs) och ett värde (1-13). Den grafiska representationen av kortet görs med hjälp av en sprite "img/deck.png". Klassen CardGraphics ärver från Card. Med hjälp av en metod som returnerar en sträng, som beskriver kortets typ och värde, hämtas kortets representation med hjälp av klassen i kortets container.</p>
+    <p>Kortleken skapas i DeckOfCards, som använder DiceGraphics för att skapa varje enskilt kort. Relationen mellan klasserna uppfattas vara aggregation, då ett kort kan existera oberoende av en kortlek. Klassen har ett antal metoder. Den som hämtar representationen av kortleken är getDeckAsString(), som returnerar en array innehållande 52 kort.</p>
+    <p>Slutligen skapades klassen CardHand för att möjliggöra att plocka kort från kortleken. CardHand uppfattas inte kunna existera utan en kortlek, varvid relationen uppfattas vara en komposition. Cardhand använder objektet DeckOfCards för att dra kort det sista kortet ur kortleken. Handen returneras sedan på liknande sett som kortleken, med hjälp av metoden getHandAsString().</p>
+    <img class="uml" src="{{ asset("img/uml.png") }}" alt="Uml-diagram">
 </div>
 
 <div class="main-side">
