@@ -1,0 +1,26 @@
+{# templates/index.html.twig #}
+
+{% extends('base.html.twig') %}
+
+{% block title %}Game{% endblock %}
+
+{% block content %}
+<div class="main-title">
+    <h1>Välkommen till API-sidan</h1>
+</div>
+
+<div class="main-content">
+    {{ include('game/flash.html.twig') }}
+    <p>Detta är en undersida som listar API:er kopplade till webbplatsen.</p>
+</div>
+
+<div class="main-side">
+    <ul>
+        <li><a href="{{ path('quoteApi') }}">Citat API</a></li>
+        <li><a href="{{ path('deckApi') }}">Kortlek API</a></li>
+        <li><a href="{{ path('shuffleApi') }}">Blandad kortlek API</a></li>
+        <li><a href="{{ path('drawApi') }}">Dra ett kort API</a></li>
+        <li><a href="{{ asset ('api/deck/draw/4') }}">Dra flera kort API</a></li>
+    </ul>
+</div>
+{% endblock %}

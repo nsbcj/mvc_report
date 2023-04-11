@@ -1,0 +1,29 @@
+{# templates/dicehand.html.twig #}
+
+{% extends('base.html.twig') %}
+
+{% block title %}Game{% endblock %}
+
+{% block content %}
+<div class="main-title">
+    <h1>Välkommen till tärningsspelet</h1>
+</div>
+
+<div class="main-content">
+    <p>Kasta tärningar.</p>
+    {% if (numDices) %}
+    <p>Du har kastat {{ numDices }} tärningar</p>
+    {% endif %}
+    <ul>
+    {% for dice in diceRoll %}
+        <li>{{ dice }}</li>
+    {% endfor %}
+    </ul>
+</div>
+
+<div class="main-side">
+    <a href="{{ asset ('img/avatar.png') }}">
+        <img src="{{ asset ('img/avatar.png') }}" alt="Bild kunde inte laddas">
+    </a>
+</div>
+{% endblock %}

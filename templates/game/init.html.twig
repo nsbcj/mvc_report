@@ -1,0 +1,25 @@
+{# templates/init.html.twig #}
+
+{% extends('base.html.twig') %}
+
+{% block title %}Game{% endblock %}
+
+{% block content %}
+<div class="main-title">
+    <h1>Tärningsspelet [START]</h1>
+</div>
+
+<div class="main-content">
+    <p>Hur många tärningar vill du starta med?</p>
+    <form action="" method="post">
+        <input type="number" name="num_dices" min="1" max="99" value="1">
+        <input type="submit" name="do_it" value="Start playing"></input>
+    </form>
+</div>
+
+<div class="main-side">
+    <a href="{{ asset ('img/avatar.png') }}">
+        <img src="{{ asset ('img/avatar.png') }}" alt="Bild kunde inte laddas">
+    </a>
+</div>
+{% endblock %}

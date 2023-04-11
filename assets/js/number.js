@@ -2,8 +2,6 @@
 
 'use strict'
 
-'use strict'
-
 module.exports = {
     generateCards: generateCards,
     randomNumber: randomNumber

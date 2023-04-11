@@ -1,0 +1,29 @@
+{# templates/card.html.twig #}
+
+{% extends('base.html.twig') %}
+
+{% block title %}Deck{% endblock %}
+
+{% block content %}
+<div class="main-title">
+    <h1>Välkommen till Kortsidan</h1>
+</div>
+
+<div class="main-content">
+    {{ include('game/flash.html.twig') }}
+    <p>På denna sida visas en blandad kortlek.</p>
+    {% for card in deck %}
+        <p class="card-sprite {{ card }}"></p>
+    {% endfor %}
+</div>
+
+<div class="main-side">
+    <ul>
+        <li><a href="{{ path ('card') }}">Första sida</a></li>
+        <li><a href="{{ path ('deck') }}">Deck</a></li>
+        <li><a href="{{ path ('shuffle') }}">Shuffle</a></li>
+        <li><a href="{{ path ('draw') }}">Draw</a></li>
+        <li><a href="{{ asset ('card/deck/draw/4') }}">Draw many</a></li>
+    </ul>
+</div>
+{% endblock %}

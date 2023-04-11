@@ -1,0 +1,37 @@
+{# templates/init.html.twig #}
+
+{% extends('base.html.twig') %}
+
+{% block title %}Game{% endblock %}
+
+{% block content %}
+<div class="main-title">
+    <h1>Tärningsspelet [SPELAR]</h1>
+</div>
+
+<div class="main-content">
+    <p>Rulla tärningen eller spara de poäng du har.</p>
+    <form action="" method="post">
+        <input type="submit" name="roll" value="Roll" onClick="this.form.action='{{ path('game_roll') }}'">
+        <input type="submit" name="save" value="Save" onClick="this.form.action='{{ path('game_save') }}'">
+        <input type="submit" name="restart" value="Restart" onClick="this.form.action='{{ path('game_init') }}';this.form.method='get'">
+    </form>
+    <p>Du spelar med {{ gameDices }} tärningar</p>
+
+    <p>Runda: {{ gameRound }}</p>
+    <p>Total: {{ gameTotal }}</p>
+
+    <p>
+    {% for dice in gameHand %}
+        <span class="dice">{{ dice }}</span>
+    {% endfor %}
+    </p>
+    {{ include('game/flash.html.twig') }}
+</div>
+
+<div class="main-side">
+    <a href="{{ asset ('img/avatar.png') }}">
+        <img src="{{ asset ('img/avatar.png') }}" alt="Bild kunde inte laddas">
+    </a>
+</div>
+{% endblock %}

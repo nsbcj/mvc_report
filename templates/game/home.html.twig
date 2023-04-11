@@ -1,0 +1,21 @@
+{# templates/index.html.twig #}
+
+{% extends('base.html.twig') %}
+
+{% block title %}Game{% endblock %}
+
+{% block content %}
+<div class="main-title">
+    <h1>Välkommen till tärningsspelet</h1>
+</div>
+
+<div class="main-content">
+    <p>Detta är ett tärningsspel där du kan kasta ett antal tärningar och försöka nå 100 poäng.</p>
+</div>
+
+<div class="main-side">
+    <a href="{{ asset ('img/avatar.png') }}">
+        <img src="{{ asset ('img/avatar.png') }}" alt="Bild kunde inte laddas">
+    </a>
+</div>
+{% endblock %}

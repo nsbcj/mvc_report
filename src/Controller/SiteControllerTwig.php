@@ -31,7 +31,7 @@ class SiteControllerTwig extends AbstractController
      */
     public function report(): Response
     {
-        $parsedown = New ParsedownExtra();
+        $parsedown = new ParsedownExtra();
 
         $content_files = glob("content/*.md");
 
