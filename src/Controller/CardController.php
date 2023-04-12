@@ -25,7 +25,7 @@ class CardController extends AbstractController
         $data = [
             "card" => $card->getAsString()
         ];
-        echo $data["card"];
+
         return $this->render('card/card.html.twig', $data);
     }
 
