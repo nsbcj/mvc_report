@@ -68,13 +68,21 @@ class ApiControllerJson extends AbstractController
     }
 
     /**
-     * @Route("/api/deck/shuffle", name="shuffleApi", methods="GET")
+     * @Route("/api/deck/shuffle", name="shuffleApi", methods="POST")
      */
-    public function shuffleApi(): Response
-    {
+    public function shuffleApi(
+        SessionInterface $session
+    ): Response {
+        $sessionDeck = $session->get("deck") ?? null;
+
+        if(isset($sessionDeck)) {
+            $session->remove("deck");
+        }
+
         $deck = new DeckOfCards();
         $deck->init();
         $deck->shuffle();
+        $session->set("deck", $deck);
 
         $data = [
             "deck" => $deck->getDeckAsString(),
@@ -86,7 +94,7 @@ class ApiControllerJson extends AbstractController
     }
 
     /**
-     * @Route("/api/deck/draw/{num<\d+>}", name="drawApi", methods="GET")
+     * @Route("/api/deck/draw/{num<\d+>}", name="drawApi", methods="POST")
      */
     public function drawApi(
         SessionInterface $session,
@@ -100,8 +108,6 @@ class ApiControllerJson extends AbstractController
             $deck->init();
             $deck->shuffle();
         }
-
-        $deckLength = $deck->getDeckLength();
 
         $deckLength = $deck->getDeckLength();
 

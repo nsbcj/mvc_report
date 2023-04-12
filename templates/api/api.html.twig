@@ -18,9 +18,21 @@
     <ul>
         <li><a href="{{ path('quoteApi') }}">Citat API</a></li>
         <li><a href="{{ path('deckApi') }}">Kortlek API</a></li>
-        <li><a href="{{ path('shuffleApi') }}">Blandad kortlek API</a></li>
-        <li><a href="{{ path('drawApi') }}">Dra ett kort API</a></li>
-        <li><a href="{{ asset ('api/deck/draw/4') }}">Dra flera kort API</a></li>
+        <li>
+            <form action="{{ path('shuffleApi') }}" method="post">
+                <input class="link" type="submit" value="Shuffle">
+            </form>
+        </li>
+        <li>
+            <form action="{{ path('drawApi') }}" method="post">
+                <input class="link" type="submit" value="Draw">
+            </form>
+        </li>
+        <li>
+            <form id="draw" action="api/deck/draw/4" method="post">
+                <input class="link" type="submit" value="DrawMany">
+            </form>
+        </li>
     </ul>
 </div>
 {% endblock %}
