@@ -21,7 +21,6 @@ let number = require('./js/number.js');
 
 number.generateCards();
 number.randomNumber();
-number.formNumber();
 
 // start the Stimulus application
 import './bootstrap';

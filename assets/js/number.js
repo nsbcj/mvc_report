@@ -4,8 +4,7 @@
 
 module.exports = {
     generateCards: generateCards,
-    randomNumber: randomNumber,
-    formNumber: formNumber
+    randomNumber: randomNumber
 };
 
 function generateCards(interval=1000, timeout=5000) {
@@ -61,12 +60,3 @@ function randomNumber() {
     };
     setTimeout(clearInter, 6000);
 };
-
-function formNumber() {
-    let inputVal = querySelector("#number");
-
-    if (inputVal) {
-        let drawDiv = querySelector("#drawDiv");
-        drawDiv.action += `/${inputVal.value}`;
-    }
-}
