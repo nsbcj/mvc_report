@@ -29,8 +29,8 @@
             </form>
         </li>
         <li>
-            <form id="draw" action="api/deck/draw/" method="post">
-                <input type="number" name="" id="number" min="1" max="52" value="1" onChange="this.form.action += this.value;">
+            <form id="draw" action="api/deck/draw/1" method="post">
+                <input type="number" name="" id="number" min="1" max="52" value="1" onChange="this.form.action = `api/deck/draw/${this.value}`;">
                 <input class="link" type="submit" value="DrawMany">
             </form>
         </li>
