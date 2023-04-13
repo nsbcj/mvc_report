@@ -1,7 +1,7 @@
 ##Kmom02 {#kmom02}
 ###Objektorienterade konstruktioner
 ####Arv
-Arv är en form av utbyggnad av en basklass. Den kan använda för att möjliggöra tillgång till en basklass medlemsvariabler och metoder. Ett arv kan inte finnas utan en basklass. I uppgiften använde jag en arvsrelation för att möjliggöra en grafisk representation av ett spelkort.
+Arv är en form av utbyggnad av en basklass. Den kan användas för att möjliggöra tillgång till en basklass medlemsvariabler och metoder. Ett arv kan inte finnas utan en basklass. I uppgiften använde jag en arvsrelation för att möjliggöra en grafisk representation av ett spelkort.
 
 ####Komposition
 Jag tänker att komposition, precis som aggregation, karakteriseras av "har en" relation mellan två klasser. En komposition innebär att den ena klassens existens är beroende av den andra. Ett exempel är att en klass som instansierar en flygresa inte kan finnas utan ett flygplan.
@@ -13,7 +13,7 @@ Aggregation liknar komposition med tillägget att klasserna, som "har en" relati
 Interface användes inte stor utsträckning under kursmomentet. Jag testade det i guiden och uppfattade det då som en form av uppsättning av villkor rörande vilka metoder som ska finnas i en klass. Använder en klass ett interface, ska alltså de metoder som är beskrivna i interfacet hittas i klassen.
 
 ####Trait
-Trait användes inte heller i stor utsträckning av mig under kursmomentet. Jag uppfattar att traits tillgängliggör sina medlemsvariabler och metoder för andra klasser som använder traitet. Medlemsvariabler och metoder som är användbara för flera klasser, kan skrivas i ett Trait.
+Trait användes inte heller i stor utsträckning av mig under kursmomentet. Jag uppfattar att traits tillgängliggör sina medlemsvariabler och metoder för andra klasser som använder traitet. Medlemsvariabler och metoder som är användbara för flera klasser, kan skrivas i ett trait.
 
 ###Implementation av uppgiften
 Uppgiften försökte jag lösa genom att använda en liknande struktur som i övningen. Jag använde ett eget namespace för klasserna och en egen folder för template-filerna. Metoderna i klasserna har försökts hållas så konkreta som möjligt.
