@@ -12,6 +12,8 @@ import './styles/main.scss';
 import './styles/lucky.scss';
 import './styles/flash.scss';
 import './styles/card.scss';
+import './styles/cardgame.scss';
+import './styles/buttons.scss';
 import './styles/footer.scss';
 
 // start javaScript

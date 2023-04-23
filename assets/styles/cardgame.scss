@@ -1,0 +1,94 @@
+.card-sum-alert {
+    color: rgb(198, 63, 35);
+}
+
+.board-grid {
+    display: grid;
+    grid-template-areas:
+    "house"
+    "deck"
+    "player"
+    "form";
+    grid-template-rows: auto 1fr auto auto;
+    place-items: center;
+}
+
+.forms {
+    display: grid;
+    grid-template-areas:
+    "draw hold";
+    width: 100%;
+}
+
+.house {
+    grid-area: house;
+    display: grid;
+    place-items: center;
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.deck {
+    grid-area: deck;
+}
+
+.player {
+    grid-area: player;
+    display: grid;
+    place-items: center;
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.form {
+    grid-area: form;
+}
+
+.form-draw {
+    grid-area: draw;
+}
+
+.form-hold {
+    grid-area: hold;
+}
+
+.form-shuffle {
+    grid-area: draw;
+}
+
+.card-container {
+    min-height: 91px;
+}
+
+.red {
+    color: rgb(222, 135, 135);
+}
+
+.green {
+    color: rgb(135, 222, 147);
+}
+
+.card-stat {
+    margin: 0.5rem;
+    .card-stat-bar {
+        background-color: rgb(135, 222, 147);
+        display: inline-block;
+        height: 15px;
+    }
+    .card-stat-number {
+        font-weight: bold;
+        margin-right: 0.5rem;
+        min-width: 20px;
+        display: inline-block;
+    }
+}
+
+.indent {
+    margin-left: 20px;
+}
+
+.double-indent {
+    margin-left: 40px;
+}

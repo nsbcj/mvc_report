@@ -7,15 +7,20 @@ main {
     display: grid;
     grid-template-areas:
     "title title title"
-    "content content side";
+    "content content side"
+    "footer footer footer";
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto 1fr auto;
     padding: 1rem;
     img {
         max-width: 250px;
         border-radius: 10px;
         margin-inline: auto 0;
         display: block;
+    }
+    .full-width {
+        max-width: 100%;
+        width: 100%;
     }
 }
 

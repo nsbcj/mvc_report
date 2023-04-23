@@ -4,8 +4,8 @@ namespace App\Card;
 
 class Card
 {
-    protected $type;
-    protected $value;
+    protected string|null $type;
+    protected int|null $value;
 
     public function __construct()
     {
@@ -21,11 +21,23 @@ class Card
         $this->value = $value;
     }
 
-    public function getCard(): object
+    /**
+     * @return array<string,int|string|null>
+     */
+    public function getCard(): array
     {
-        return [
+        $res = [];
+
+        $res = [
             "type" => $this->type,
             "value" => $this->value
         ];
+
+        return $res;
+    }
+
+    public function getCardValue(): int
+    {
+        return $this->value;
     }
 }

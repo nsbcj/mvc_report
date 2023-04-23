@@ -4,7 +4,10 @@ namespace App\Dice;
 
 class DiceHand
 {
-    protected $hand;
+    /**
+     * @var array<object>
+     */
+    protected array $hand;
 
     public function __construct()
     {
@@ -28,6 +31,9 @@ class DiceHand
         return count($this->hand);
     }
 
+    /**
+     * @return array<object>
+     */
     public function getValues(): array
     {
         $values = [];
@@ -37,6 +43,9 @@ class DiceHand
         return $values;
     }
 
+    /**
+     * @return array<object>
+     */
     public function getString(): array
     {
         $values = [];

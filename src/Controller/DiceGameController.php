@@ -14,29 +14,29 @@ use App\Dice\DiceHand;
 class DiceGameController extends AbstractController
 {
     /**
-     * @Route("/game", name="start")
+     * @Route("/dicegame", name="start")
      */
     public function home(): Response
     {
-        return $this->render('game/home.html.twig');
+        return $this->render('dicegame/home.html.twig');
     }
 
     /**
-     * @Route("/game/rollDice", name="roll_dice")
+     * @Route("/dicegame/rollDice", name="roll_dice")
      */
     public function rollDice(): Response
     {
-        $dice = new Dice();
+        $dice = new DiceGraphic();
 
         $data = [
             "diceRoll" => $dice->roll(),
             "diceString" => $dice->getAsString()
         ];
-        return $this->render('game/roll.html.twig', $data);
+        return $this->render('dicegame/roll.html.twig', $data);
     }
 
     /**
-     * @Route("/game/dicehand/{num<\d+>}", name="dicehand")
+     * @Route("/dicegame/dicehand/{num<\d+>}", name="dicehand")
      */
     public function diceHand(int $num): Response
     {
@@ -49,23 +49,23 @@ class DiceGameController extends AbstractController
         $hand->roll();
 
         $data = [
-            "numDices" => $hand->getNumberOfDices(),
-            "diceRoll" => $hand->getString()
-        ];
+                "numDices" => $hand->getNumberOfDices(),
+                "diceRoll" => $hand->getString()
+            ];
 
-        return $this->render('game/dicehand.html.twig', $data);
+        return $this->render('dicegame/dicehand.html.twig', $data);
     }
 
     /**
-     * @Route("/game/init", name="game_init", methods="GET")
+     * @Route("/dicegame/init", name="game_init", methods="GET")
      */
     public function init(): Response
     {
-        return $this->render('game/init.html.twig');
+        return $this->render('dicegame/init.html.twig');
     }
 
     /**
-     * @Route("/game/init", name="game_init_post", methods="POST")
+     * @Route("/dicegame/init", name="game_init_post", methods="POST")
      */
     public function initCallback(
         Request $request,
@@ -90,7 +90,7 @@ class DiceGameController extends AbstractController
     }
 
     /**
-     * @Route("/game/play", name="game_play", methods="GET")
+     * @Route("/dicegame/play", name="game_play", methods="GET")
      */
     public function play(
         SessionInterface $session
@@ -104,11 +104,11 @@ class DiceGameController extends AbstractController
             "gameHand" => $diceHand->getString()
         ];
 
-        return $this->render('game/play.html.twig', $data);
+        return $this->render('dicegame/play.html.twig', $data);
     }
 
     /**
-     * @Route("/game/roll", name="game_roll", methods="POST")
+     * @Route("/dicegame/roll", name="game_roll", methods="POST")
      */
     public function roll(
         SessionInterface $session
@@ -138,7 +138,7 @@ class DiceGameController extends AbstractController
     }
 
     /**
-     * @Route("/game/save", name="game_save", methods="POST")
+     * @Route("/dicegame/save", name="game_save", methods="POST")
      */
     public function save(
         SessionInterface $session

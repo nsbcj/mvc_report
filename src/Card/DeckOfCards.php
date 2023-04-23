@@ -6,21 +6,27 @@ use App\Card\CardGraphic;
 
 class DeckOfCards
 {
-    public $series;
-    protected $types = [
+    /**
+     * @var array<object>
+     */
+    public array $series;
+    /**
+     * @var array<string>
+     */
+    protected array $types = [
         "hearts",
         "diamonds",
         "clubs",
         "spades"
     ];
-    protected $countbytype = 13;
+    protected int $countbytype = 13;
 
     public function __construct()
     {
         $this->series = [];
     }
 
-    private function addCard($type, $value): void
+    private function addCard(string $type, int $value): void
     {
         $card = new CardGraphic();
         $card->setCard($type, $value);
@@ -46,16 +52,38 @@ class DeckOfCards
         return array_pop($this->series);
     }
 
+    /**
+     * @return int
+     */
     public function getDeckLength(): int
     {
         return count($this->series);
     }
 
+    /**
+     * @return array<object>
+     */
     public function getDeck(): array
     {
         return $this->series;
     }
 
+    /**
+     * @return array<object>
+     */
+    public function getDeckValues(): array
+    {
+        $values = [];
+        foreach ($this->series as $value) {
+            $cardValue = $value->getCardValue();
+            array_push($values, $cardValue);
+        }
+        return $values;
+    }
+
+    /**
+     * @return array<object>
+     */
     public function getDeckAsString(): array
     {
         $values = [];

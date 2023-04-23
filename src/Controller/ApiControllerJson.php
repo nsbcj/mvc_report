@@ -27,16 +27,16 @@ class ApiControllerJson extends AbstractController
      */
     public function quoteApi(): Response
     {
-        $this->quotes = [
+        $quotes = [
             "Bättre sent än aldrig",
             "Det viktigaste är att deltaga",
             "Listig som en räv"
         ];
 
-        $this->random = rand(0, 2);
+        $random = rand(0, 2);
 
         $data = [
-            "quotes" => $this->quotes[$this->random],
+            "quotes" => $quotes[$random],
             "date" => date("Y-m-d"),
             "time" => date("H:i:s")
         ];
@@ -136,6 +136,23 @@ class ApiControllerJson extends AbstractController
             "date" => date("Y-m-d"),
             "time" => date("H:i:s")
         ];
+
+        return new JsonResponse($data);
+    }
+
+    /**
+     * @Route("/api/game", name="gameApi", methods="POST")
+     */
+    public function gameApi(
+        SessionInterface $session
+    ): Response {
+        $game = $session->get("game") ?? null;
+
+        $data = [];
+
+        if (isset($game)) {
+            $data = $game->play();
+        }
 
         return new JsonResponse($data);
     }

@@ -6,7 +6,7 @@ use App\Dice\Dice;
 
 class Dice
 {
-    protected $value;
+    protected int|null $value;
 
     public function __construct()
     {

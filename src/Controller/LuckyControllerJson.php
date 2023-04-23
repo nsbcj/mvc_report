@@ -13,16 +13,16 @@ class LuckyControllerJson
      */
     public function number(): Response
     {
-        $this->quotes = [
+        $quotes = [
             "Bättre sent än aldrig",
             "Det viktigaste är att deltaga",
             "Listig som en räv"
         ];
 
-        $this->random = rand(0, 2);
+        $random = rand(0, 2);
 
         $data = [
-            "quotes" => $this->quotes[$this->random],
+            "quotes" => $quotes[$random],
             "date" => date("Y-m-d"),
             "time" => date("H:i:s")
         ];
@@ -41,11 +41,11 @@ class LuckyControllerJson
      */
     public function number2(): Response
     {
-        $this->number = random_int(0, 100);
+        $number = random_int(0, 100);
 
         $data = [
             'message' => 'Welcome to the lucky number API',
-            'lucky-number' => $this->number
+            'lucky-number' => $number
         ];
 
         return new JsonResponse($data);
@@ -58,13 +58,13 @@ class LuckyControllerJson
      */
     public function number3(int $min, int $max): Response
     {
-        $this->number = random_int($min, $max);
+        $number = random_int($min, $max);
 
         $data = [
             'message' => 'Welcome to the lucky number API',
             'min number' => $min,
             'max number' => $max,
-            'lucky-number' => $this->number
+            'lucky-number' => $number
         ];
 
         return new JsonResponse($data);

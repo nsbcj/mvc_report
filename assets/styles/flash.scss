@@ -2,7 +2,9 @@
     padding: 0.5em;
     color: #004085;
     background-color: #cce5ff;
-    border-color: #b8daff;
+    border: 5px solid #b8daff;
+    border-radius: 5px;
+    margin: 0 1rem 1rem 0;
 }
 .flash-notice:before {
     content: "ⓘ";
@@ -12,7 +14,9 @@
     padding: 0.5em;
     color: #856404;
     background-color: #fff3cd;
-    border-color: #ffeeba;
+    border: 5px solid #ffeeba;
+    border-radius: 5px;
+    margin: 0 1rem 1rem 0;
 }
 .flash-warning:before {
     content: "⚠";

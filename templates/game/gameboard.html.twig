@@ -1,0 +1,115 @@
+{# templates/card.html.twig #}
+
+{% extends('base.html.twig') %}
+
+{% block title %}Spel{% endblock %}
+
+{% block content %}
+    <div class="main-title">
+        <h1>Spelrunda startad</h1>
+    </div>
+
+    <div class="main-content">
+        {{ include('dicegame/flash.html.twig') }}
+        <div class="board-grid">
+            <div class="house">
+                {% if house is defined %}
+                    <div class="card-container">
+                        {% for card in house["hand"] %}
+                            <p class="card-sprite {{ card }}"></p>
+                        {% endfor %}
+                    </div>
+                    {% if house["under"] %}
+                        <p>House hand sum:
+                        </span><span class="card-sum">{{ house["sum"] }}</span>
+                    </p>
+                {% else %}
+                    <p>House hand sum:
+                    </span><span class="card-sum-alert">{{ house["sum"] }}</span>
+                </p>
+            {% endif %}
+        {% endif %}
+    </div>
+    <div class="deck">
+        {% if deck is defined and deck["deckLength"] > 0 %}
+            <img width="91" height="136" src="{{ asset("img/card-game.svg") }}" alt="deck">
+            <span class="deck-cards-left">Cards left:
+                {{ deck["deckLength"] }}</span>
+        {% endif %}
+    </div>
+    <div class="player">
+        {% if player is defined %}
+            <div class="card-container">
+                {% for card in player["hand"] %}
+                    <p class="card-sprite {{ card }}"></p>
+                {% endfor %}
+            </div>
+            {% if player["under"] %}
+                <p>Player hand sum:
+                    <span class="card-sum">{{ player["sum"] }}</span></p>
+            {% else %}
+                <p>Player hand sum:
+                    <span class="card-sum-alert">{{ player["sum"] }}</span></p>
+            {% endif %}
+            {% if player["percentage"] is defined and done == 0 %}
+                <p>
+                    Draw card percentage:
+                    {% if player["percentage"] > 50 %}
+                        <span class="green">{{  player["percentage"] }}%</span>
+                    {% else %}
+                        <span class="red">{{  player["percentage"] }}%</span>
+                    {% endif %}
+                </p>
+            {% endif %}
+        {% endif %}
+    </div>
+    <div class="forms">
+        {% if player["under"] and done == 0 %}
+            {% if deck["cardLeft"] %}
+                <form class="form-draw" action="" method="post">
+                    <input type="hidden" name="draw" value="true">
+                    <input class="button button-draw" type="submit" value="draw">
+                </form>
+                <form class="form-hold" action="" method="post">
+                    <input type="hidden" name="hold" value="true">
+                    <input class="button button-hold" type="submit" value="hold">
+                </form>
+            {% else %}
+                <form class="form-shuffle" action="{{ path('cardGameShuffle') }}" method="post">
+                    <input type="hidden" name="game_status" value="shuffle">
+                    <input class="button button-submit" type="submit" value="shuffle">
+                </form>
+            {% endif %}
+            {% endif%}
+        </div>
+    </div>
+</div>
+
+<div class="main-side">
+    <ul>
+        <li>
+            <form method="post" action="{{ path('initGame') }}">
+                <input class="button button-submit" type="submit" value="Starta om spel">
+            </form>
+        </li>
+        {% if done == 1 %}
+            <li>
+                <form method="post" action="{{ path('proceedGame') }}">
+                    <input class="button button-draw" type="submit" value="Fortsätt spelrunda">
+                </form>
+            </li>
+        {% endif %}
+        {% for stat in gamestats %}
+            {% for card, percentage in stat %}
+            <li>
+                <div class=card-stat>
+                <span class="card-stat-number">{{ card }}</span>
+                <span class="card-stat-bar" style="width: {{ percentage }}%;"></span>
+                <span class="card-stat-percent">{{ percentage }}%</span>
+                </div>
+            </li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

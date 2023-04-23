@@ -1,0 +1,36 @@
+{# templates/card.html.twig #}
+
+{% extends('base.html.twig') %}
+
+{% block title %}Kortspel{% endblock %}
+
+{% block content %}
+    <div class="main-title">
+        <h1>Välkommen till kortspelet</h1>
+    </div>
+
+    <div class="main-content">
+        {{ include('dicegame/flash.html.twig') }}
+        <p>Välkommen till kortspelet 21.</p>
+
+        <p>Spelet startas genom att klicka på "starta spel".</p>
+
+        <p>Målet med spelet är uppnå värdet 21, utan att överstiga det. Överstigs värdet har spelaren förlorat. Spelet spelas mot huset. Huset vinner vid delad poäng. Annars vinner den part som uppnår siffran närmast 21.</p>
+
+        <p>Kortens värde motsvarar ordningsföljden, bortsett från ess. Ess kan vara både 1-14. Tvåor - kungar representerar 2-13.</p>
+
+        <p>Lycka till!</p>
+
+        <a href="game/doc">Dokumentation</a>
+    </div>
+
+    <div class="main-side">
+        <ul>
+            <li>
+                <form method="post" action="{{ path('initGame') }}">
+                    <input class="button button-submit" type="submit" value="Starta spelet">
+                </form>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

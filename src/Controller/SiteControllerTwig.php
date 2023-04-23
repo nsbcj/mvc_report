@@ -33,18 +33,20 @@ class SiteControllerTwig extends AbstractController
     {
         $parsedown = new ParsedownExtra();
 
-        $content_files = glob("content/*.md");
+        $contentFiles = glob("content/*.md");
 
-        $parsed_files = [];
+        $parsedFiles = [];
 
-        foreach ($content_files as $file) {
-            array_push($parsed_files, [
+        $data = [];
+
+        foreach ($contentFiles as $file) {
+            array_push($parsedFiles, [
                 "name" => basename($file, ".md"),
                 "content" => $parsedown -> text(file_get_contents($file))
             ]);
         }
 
-        $data["content"] = $parsed_files;
+        $data["content"] = $parsedFiles;
         return $this->render('report.html.twig', $data);
     }
 
@@ -53,10 +55,10 @@ class SiteControllerTwig extends AbstractController
      */
     public function lucky(): Response
     {
-        $this->number = random_int(0, 100);
+        $number = random_int(0, 100);
 
         $data = [
-            'number' => $this->number
+            'number' => $number
         ];
 
         return $this->render('lucky.html.twig', $data);
