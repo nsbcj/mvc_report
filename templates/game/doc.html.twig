@@ -44,21 +44,21 @@
         <p>ENDIF</p>
         <h2>Klasser</h2>
         <h3>Card</h3>
-        <p>Klassen card behövs för att skapa varje enskilt kort. I klassen anges kortets typ och dess värde.</p>
+        <p>Klassen Card behövs för att skapa varje enskilt kort. I klassen anges kortets typ och dess värde.</p>
         <h3>CardGraphic</h3>
-        <p>Klassen ärver från Card och används för att returnera en sträng med som hämtar kortets grafiska representation. Den grafiska representationen görs med hjälp av en sprite-bild.</p>
+        <p>Klassen ärver från Card och används för att returnera en strän som hämtar kortets grafiska representation. Den grafiska representationen görs med hjälp av en sprite-bild.</p>
         <h3>CardHand</h3>
-        <p>Klassen är generar en array som används för att hålla enskilda kort. Den kan ses som en spelhand, som kan användas av spelare.</p>
+        <p>Klassen genererar en array som används för att hålla enskilda kort. Den kan ses som en spelhand, som kan användas av spelare.</p>
         <h3>DeckOfCards</h3>
-        <p>Klassen är kortleken och generar 52 unika Cards, som läggs till till i en array. I klassen finns även en del metoder som bland annat kan användas för att hämta aktuell kortlek, dra kort från kortleken och blanda densamma.</p>
+        <p>Klassen är kortleken och generar 52 unika Cards som läggs till i en array. I klassen finns även en del metoder som bland annat kan användas för att hämta aktuell kortlek, dra kort från kortleken och blanda densamma.</p>
         <h3>Player</h3>
         <p>Klassen används för att skapa en spelare i spelet. En spelare har ett namn och en CardHand.</p>
         <h3>HousePlayer</h3>
-        <p>Klassen används för att skapa en huset, alltså motspelaren, i spelet. Klassen ärver från Player, men sätter ett annat namn på spelaren.</p>
+        <p>Klassen används för att skapa huset, alltså motspelaren, i spelet. Klassen ärver från Player, men sätter ett annat namn på spelaren.</p>
         <h3>Gamestats</h3>
         <p>Klassen används för att hämta statistik rörande kvarvarande kort i DeckOfCards. Klassen används för att visa spelarens sannolikhet att dra ett kort som gör att dess hand inte överstiger önskat värde (inte överstiger 21). Den innehåller även en metod som visar hur stor sannolikhet det är att dra kort av specifika värden. Klassen även för motståndarens spellogik.</p>
         <h3>CardGame</h3>
-        <p>Klassen sköter spelets övergripande logik. Den använder de andra klasserna för att skapa all information som behövs för att rendera spelet. Klassen innehåller flertalet metoder för att sköta spelet.</p>
+        <p>Klassen sköter spelets övergripande logik. Den använder de andra klasserna för att skapa all information som behövs för att rendera spelet. Klassen innehåller flertalet metoder för att sköta spelet. Den innehåller objekt som spelare, huset, kortleken och statistiken rörande spelet.</p>
     </div>
     <div class="main-side"></div>
 {% endblock %}
