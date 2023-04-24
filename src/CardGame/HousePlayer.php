@@ -13,7 +13,7 @@ class HousePlayer extends Player
 
     public function setHousePlayer(
         string $name = "House"
-    ):void {
+    ): void {
         $this->name = $name;
     }
 }

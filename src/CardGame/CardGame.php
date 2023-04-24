@@ -66,7 +66,7 @@ class CardGame
         return $data;
     }
 
-    public function init():void
+    public function init(): void
     {
         $this->deck->init();
         $this->deck->shuffle();
@@ -75,7 +75,7 @@ class CardGame
         $this->house->setHousePlayer();
     }
 
-    public function reset():void
+    public function reset(): void
     {
         $this->house->hand->resetHand();
 
