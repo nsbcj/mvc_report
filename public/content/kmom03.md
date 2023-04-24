@@ -19,3 +19,8 @@ Den generella känslan är att mycket tid behöver läggas på syntax. Symofony 
 Strukturen i foldrarna börjar jag få koll på. Just nu är det kommentarer användande av php-docblock som jag försöker lära mig. Att sätta variabelbeskrivningar på rätt ställe känns som en ganska komplicerad grej.
 
 En del som verkar vara en fördel med ramverk, är att det är ganska enkelt att implementera nya moduler i programmet. Jag har inte upplevt några större problem vid implementationen av linters och andra delar kopplade till composer. Å andra sidan upplevs det som lite struligt att använda JavaScript i kombination med Symfony.  
+
+###TIL
+I detta kursmoment har jag börjat fördjupa mig i docblock-kommentarer. Tanken är att lägga till sådana i koden framöver. Förhoppningsvis kan koden gå igenom högre nivåer av tester i phpstan. Det har inte varit helt enkelt att hitta lösningar på de felmeddelande som phpstan givit. Varje nivå ger nya utmaningar och nästa nivå har att göra med definitioner av bland annat metoder. Målet är att i varje fall lösa denna nivå under kommande kursmoment.
+
+I övrigt tycker jag att jag lärt mig saker om objektorientering generellt. Jag försöker tänka på klasser som enskilda objekt, som representerar en sak vardera. Kursmomentet har givit bra övning i detta. Jag tror även att kursmomentet har varit en bra förberedelse inför kommande projekt.
