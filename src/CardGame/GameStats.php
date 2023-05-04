@@ -17,6 +17,14 @@ class GameStats
         $this->deckStats = [];
     }
 
+    /**
+     * @return array<int>
+     */
+    public function getDeckStats(): array
+    {
+        return $this->deckStats;
+    }
+
     public function setDeckStats(
         DeckOfCards $deck
     ): void {
@@ -53,7 +61,7 @@ class GameStats
         $diff = $max - $hand;
         $sum = 0;
 
-        foreach ($this->deckStats as $key => $value) {
+        foreach ($this->getDeckStats() as $key => $value) {
             $percentage = $value / $deck->getDeckLength();
             if ($key <= $diff) {
                 $sum += $percentage;

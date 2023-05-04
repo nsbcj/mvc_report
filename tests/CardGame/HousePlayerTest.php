@@ -18,4 +18,16 @@ class HousePlayerTest extends TestCase
         $housePlayer = new HousePlayer();
         $this->assertInstanceOf("\App\CardGame\HousePlayer", $housePlayer);
     }
+
+    /**
+     * Test set House name.
+     */
+    public function testHouseName()
+    {
+        $housePlayer = new HousePlayer();
+
+        $housePlayer->setHousePlayer("House 2");
+
+        $this->assertEquals("House 2", $housePlayer->name);
+    }
 }

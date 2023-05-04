@@ -15,8 +15,8 @@ class CardTest extends TestCase
      */
     public function testCreateCardNoArguments()
     {
-        $guess = new Card();
-        $this->assertInstanceOf("\App\Card\Card", $guess);
+        $card = new Card();
+        $this->assertInstanceOf("\App\Card\Card", $card);
     }
 
     /**
@@ -24,11 +24,11 @@ class CardTest extends TestCase
      */
     public function testSetGetCardTypeAndValue()
     {
-        $guess = new Card();
+        $card = new Card();
 
-        $guess->setCard("spades", 10);
+        $card->setCard("spades", 10);
 
-        $card = $guess->getCard();
+        $card = $card->getCard();
 
         $this->assertEquals([
             "type" => "spades",
@@ -41,11 +41,11 @@ class CardTest extends TestCase
      */
     public function testSetGetCardValue()
     {
-        $guess = new Card();
+        $card = new Card();
 
-        $guess->setCard("spades", 10);
+        $card->setCard("spades", 10);
 
-        $card = $guess->getCardValue();
+        $card = $card->getCardValue();
 
         $this->assertEquals(10, $card);
     }

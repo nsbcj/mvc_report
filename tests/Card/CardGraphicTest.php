@@ -15,8 +15,8 @@ class CardGraphicTest extends TestCase
      */
     public function testCreateCardGraphicNoArguments()
     {
-        $guess = new CardGraphic();
-        $this->assertInstanceOf("\App\Card\CardGraphic", $guess);
+        $cardGraphic = new CardGraphic();
+        $this->assertInstanceOf("\App\Card\CardGraphic", $cardGraphic);
     }
 
     /**
@@ -24,11 +24,11 @@ class CardGraphicTest extends TestCase
      */
     public function testSetGetCardGraphicTypeAndValue()
     {
-        $guess = new CardGraphic();
+        $cardGraphic = new CardGraphic();
 
-        $guess->setCard("spades", 10);
+        $cardGraphic->setCard("spades", 10);
 
-        $card = $guess->getCard();
+        $card = $cardGraphic->getCard();
 
         $this->assertEquals([
             "type" => "spades",
@@ -41,11 +41,11 @@ class CardGraphicTest extends TestCase
      */
     public function testSetGetCardGraphicValue()
     {
-        $guess = new CardGraphic();
+        $cardGraphic = new CardGraphic();
 
-        $guess->setCard("spades", 10);
+        $cardGraphic->setCard("spades", 10);
 
-        $card = $guess->getCardValue();
+        $card = $cardGraphic->getCardValue();
 
         $this->assertEquals(10, $card);
     }
@@ -55,11 +55,11 @@ class CardGraphicTest extends TestCase
      */
     public function testSetGetCardGraphicAsString()
     {
-        $guess = new CardGraphic();
+        $cardGraphic = new CardGraphic();
 
-        $guess->setCard("spades", 10);
+        $cardGraphic->setCard("spades", 10);
 
-        $card = $guess->getAsString();
+        $card = $cardGraphic->getAsString();
 
         $this->assertEquals("spades-10", $card);
     }
