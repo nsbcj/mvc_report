@@ -30,3 +30,5 @@ En annan del i detta är förklarande kommentarer. I uppgiften har jag tränat y
 
 ###TIL
 Under kursmomentet har jag fått ytterligare insyn i hur lätt det är att tappa förståelsen för hur en applikation hänger ihop. Att liknande metoder finns på flera ställen och att koden skrivs onödigt lång är exempel på detta. Det är också svårt att rätta till sakerna i efterhand. Speciellt när man har en fungerande applikation.
+
+Målet framöver är att hålla klasserna begränsade. Detta gäller även klassernas metoder. Detta innebär att delar av den nuvarande koden kan behövas skrivas om i det fall klasserna används framöver.
