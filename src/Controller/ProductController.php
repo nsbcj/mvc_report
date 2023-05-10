@@ -57,30 +57,30 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/product/show/{id}", name="product_by_id", methods="GET")
+     * @Route("/product/show/{productId}", name="product_by_id", methods="GET")
      */
     public function showProductById(
         ProductRepository $productRepository,
-        int $id
+        int $productId
     ): Response {
         $product = $productRepository
-            ->find($id);
+            ->find($productId);
 
         return $this->json($product);
     }
 
     /**
-     * @Route("/product/delete/{id}", name="product_delete_by_id", methods="GET")
+     * @Route("/product/delete/{productId}", name="product_delete_by_id", methods="GET")
      */
     public function deleteProductById(
         ProductRepository $productRepository,
-        int $id
+        int $productId
     ): Response {
-        $product = $productRepository->find($id);
+        $product = $productRepository->find($productId);
 
         if (!$product) {
             throw $this->createNotFoundException(
-                'No product found for id '.$id
+                'No product found for id '.$productId
             );
         }
 
@@ -90,18 +90,18 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/product/update/{id}/{value}", name="product_update", methods="GET")
+     * @Route("/product/update/{productId}/{value}", name="product_update", methods="GET")
      */
     public function updateProduct(
         ProductRepository $productRepository,
-        int $id,
+        int $productId,
         int $value
     ): Response {
-        $product = $productRepository->find($id);
+        $product = $productRepository->find($productId);
 
         if (!$product) {
             throw $this->createNotFoundException(
-                'No product found for id '.$id
+                'No product found for id '.$productId
             );
         }
 

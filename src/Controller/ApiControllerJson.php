@@ -163,8 +163,7 @@ class ApiControllerJson extends AbstractController
      */
      public function libraryApi(
          LibraryRepository $libraryRepository
-         ): Response
-     {
+     ): Response {
          $books = $libraryRepository->findAll();
 
          return $this->json($books);
@@ -175,10 +174,9 @@ class ApiControllerJson extends AbstractController
       */
       public function libraryBookApi(
           LibraryRepository $libraryRepository,
-          int $ISBN
-          ): Response
-      {
-          $book = $libraryRepository->findOneBy(["ISBN" => $ISBN]);
+          int $isbn
+      ): Response {
+          $book = $libraryRepository->findOneBy(["ISBN" => $isbn]);
 
           if (!$book) {
               return $this->redirectToRoute('library_show');

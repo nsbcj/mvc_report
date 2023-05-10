@@ -32,14 +32,13 @@ class LibraryController extends AbstractController
      }
 
      /**
-      * @Route("/library/update/{id}", name="library_update", methods="GET")
+      * @Route("/library/update/{bookId}", name="library_update", methods="GET")
       */
       public function updateBook(
           LibraryRepository $libraryRepository,
-          int $id
-          ): Response
-      {
-          $book = $libraryRepository->find($id);
+          int $bookId
+      ): Response {
+          $book = $libraryRepository->find($bookId);
 
           if (!$book) {
               return $this->redirectToRoute('library_show');
@@ -53,14 +52,13 @@ class LibraryController extends AbstractController
       }
 
       /**
-       * @Route("/library/delete/{id}", name="library_delete", methods="GET")
+       * @Route("/library/delete/{bookId}", name="library_delete", methods="GET")
        */
        public function deleteBook(
            LibraryRepository $libraryRepository,
-           int $id
-           ): Response
-       {
-           $book = $libraryRepository->find($id);
+           int $bookId
+       ): Response {
+           $book = $libraryRepository->find($bookId);
 
            if (!$book) {
                return $this->redirectToRoute('library_show');
@@ -78,8 +76,7 @@ class LibraryController extends AbstractController
       */
       public function showBooks(
           LibraryRepository $libraryRepository
-          ): Response
-      {
+      ): Response {
           $books = $libraryRepository->findAll();
 
           $data = [
@@ -90,14 +87,13 @@ class LibraryController extends AbstractController
       }
 
       /**
-       * @Route("/library/show/{id}", name="library_one_book", methods="GET")
+       * @Route("/library/show/{bookId}", name="library_one_book", methods="GET")
        */
        public function showOneBook(
            LibraryRepository $libraryRepository,
-           int $id
-           ): Response
-       {
-           $book = $libraryRepository->find($id);
+           int $bookId
+       ): Response {
+           $book = $libraryRepository->find($bookId);
 
            if (!$book) {
                return $this->redirectToRoute('library_show');
@@ -118,7 +114,7 @@ class LibraryController extends AbstractController
         Request $request
     ): Response {
         $title = $request->request->get("title") ?? null;
-        $ISBN = $request->request->get("ISBN") ?? null;
+        $isbn = $request->request->get("ISBN") ?? null;
         $author = $request->request->get("author") ?? null;
         $img = $request->request->get("img") ?? null;
 
@@ -126,7 +122,7 @@ class LibraryController extends AbstractController
 
         $library = new Library();
         $library->setTitle($title);
-        $library->setISBN($ISBN);
+        $library->setISBN($isbn);
         $library->setAuthor($author);
         $library->setImg($img);
 
@@ -152,24 +148,24 @@ class LibraryController extends AbstractController
         LibraryRepository $libraryRepository,
         Request $request
     ): Response {
-        $id = $request->request->get("id") ?? null;
+        $bookId = $request->request->get("id") ?? null;
 
         $title = $request->request->get("title") ?? null;
 
-        $ISBN = $request->request->get("ISBN") ?? null;
+        $isbn = $request->request->get("ISBN") ?? null;
 
         $author = $request->request->get("author") ?? null;
 
         $img = $request->request->get("img") ?? null;
 
-        $book = $libraryRepository->find($id);
+        $book = $libraryRepository->find($bookId);
 
         if (!$book) {
             return $this->redirectToRoute('library_show');
         }
 
         $book->setTitle($title);
-        $book->setISBN($ISBN);
+        $book->setISBN($isbn);
         $book->setAuthor($author);
         $book->setImg($img);
 
@@ -178,7 +174,7 @@ class LibraryController extends AbstractController
 
         $this->addFlash(
             "notice",
-            "Boken '{$title}' med id '{$id}' har updaterats"
+            "Boken '{$title}' med id '{$bookId}' har updaterats"
         );
 
         return $this->redirectToRoute("library_show");
@@ -191,9 +187,9 @@ class LibraryController extends AbstractController
         LibraryRepository $libraryRepository,
         Request $request
     ): Response {
-        $id = $request->request->get("id") ?? null;
+        $bookId = $request->request->get("id") ?? null;
 
-        $book = $libraryRepository->find($id);
+        $book = $libraryRepository->find($bookId);
 
         $title = $book->getTitle();
 
@@ -206,7 +202,7 @@ class LibraryController extends AbstractController
 
         $this->addFlash(
             "warning",
-            "Boken '{$title}' med id '{$id}' har tagits bort"
+            "Boken '{$title}' med id '{$bookId}' har tagits bort"
         );
 
         return $this->redirectToRoute("library_show");
