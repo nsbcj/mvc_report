@@ -1,0 +1,37 @@
+{# templates/report.markdown.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Library{% endblock %}
+
+{% block content %}
+
+    <div class="main-title">
+        <h1>Visa böcker</h1>
+    </div>
+    <div class="main-content">
+        <a href="{{ absolute_url(path("library_show")) }}">Åter</a>
+        <div class="library-container">
+            {% if book.img != "" %}
+                <img src="{{ asset('img/library/' ~ book.img) }}" alt="Can't render image">
+            {% else %}
+                <img src="{{ asset('img/library/noImage.png') }}" alt="Can't render image">
+            {% endif %}
+            <h3 class="book-title">{{ book.title }}</h3>
+            <span class="book-author">Författare: {{ book.author }}</span>
+            <span class="book-ISBN">ISBN: {{ book.ISBN }}</span>
+        </div>
+    </div>
+    <div class="main-side">
+        <ul class="main-side-nav">
+            <li>
+                <a href="{{ absolute_url(path("library_create")) }}">Lägg till bok</a>
+            </li>
+            <li>
+                <a href="{{ absolute_url(path("library_show")) }}">Visa böcker</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

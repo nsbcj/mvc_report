@@ -1,0 +1,51 @@
+{# templates/report.markdown.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Library{% endblock %}
+
+{% block content %}
+
+    <div class="main-title">
+        <h1>Visa böcker</h1>
+    </div>
+    <div class="main-content">
+        <div class="flash">
+            {{ include('library/flash.html.twig') }}
+        </div>
+        <div class="library-outer">
+        {% for item in books %}
+            <div class="library-container">
+                {% if item.img != "" %}
+                    <img src="{{ asset('img/library/' ~ item.img) }}" alt="Can't render image">
+                {% else %}
+                    <img src="{{ asset('img/library/noImage.png') }}" alt="Can't render image">
+                {% endif %}
+                <h3 class="book-title">
+                    <a href="show/{{ item.id }}">{{ item.title }}</a>
+                </h3>
+                <span class="book-author">Författare: {{ item.author }}</span>
+                <span class="book-ISBN">ISBN: {{ item.ISBN }}</span>
+                <form action="update/{{ item.id }}">
+                    <input type="submit" value="Uppdatera">
+                </form>
+                <form action="delete/{{ item.id }}">
+                    <input type="submit" value="Ta bort">
+                </form>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+    <div class="main-side">
+        <ul class="main-side-nav">
+            <li>
+                <a href="{{ absolute_url(path("library_create")) }}">Lägg till bok</a>
+            </li>
+            <li>
+                <a href="{{ absolute_url(path("library_show")) }}">Visa böcker</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

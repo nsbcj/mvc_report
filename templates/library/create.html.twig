@@ -1,0 +1,34 @@
+{# templates/report.markdown.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Library{% endblock %}
+
+{% block content %}
+
+    <div class="main-title">
+        <h1>Lägg till bok</h1>
+    </div>
+    <div class="main-content">
+        <a href="{{ absolute_url(path("library_show")) }}">Åter</a>
+        <form action="{{ path("library_create_post") }}" method="post">
+            <input type="text" name="title" id="title" required="required" minlength="2" placeholder="Lägg till bokens titel">
+            <input type="number" name="ISBN" id="ISBN" required="required" min="1000000000" max="9999999999" placeholder="Lägg till ISBN nummer">
+            <input type="text" name="author" id="author" required="required" placeholder="Lägg till författaren" minlength="2">
+            <input type="text" name="img" id="img" placeholder="Lägg till bildnamn">
+            <input type="submit" value="Lägg till bok">
+        </form>
+    </div>
+    <div class="main-side">
+        <ul class="main-side-nav">
+            <li>
+                <a href="{{ absolute_url(path("library_create")) }}">Lägg till bok</a>
+            </li>
+            <li>
+                <a href="{{ absolute_url(path("library_show")) }}">Visa böcker</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

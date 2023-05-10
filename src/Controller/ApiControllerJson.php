@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use App\Card\Card;
 use App\Card\DeckOfCards;
 use App\Card\CardHand;
+use App\Repository\LibraryRepository;
 
 class ApiControllerJson extends AbstractController
 {
@@ -156,4 +157,33 @@ class ApiControllerJson extends AbstractController
 
         return new JsonResponse($data);
     }
+
+    /**
+     * @Route("/api/library/books", name="library_books_api", methods="GET")
+     */
+     public function libraryApi(
+         LibraryRepository $libraryRepository
+         ): Response
+     {
+         $books = $libraryRepository->findAll();
+
+         return $this->json($books);
+     }
+
+     /**
+      * @Route("/api/library/book/{ISBN}", name="library_book_api", methods="GET")
+      */
+      public function libraryBookApi(
+          LibraryRepository $libraryRepository,
+          int $ISBN
+          ): Response
+      {
+          $book = $libraryRepository->findOneBy(["ISBN" => $ISBN]);
+
+          if (!$book) {
+              return $this->redirectToRoute('library_show');
+          }
+
+          return $this->json($book);
+      }
 }

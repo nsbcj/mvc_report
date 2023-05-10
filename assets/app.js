@@ -9,6 +9,7 @@
 import './styles/app.scss';
 import './styles/header.scss';
 import './styles/main.scss';
+import './styles/library.scss';
 import './styles/lucky.scss';
 import './styles/flash.scss';
 import './styles/card.scss';

@@ -1,0 +1,27 @@
+{# templates/report.markdown.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Library{% endblock %}
+
+{% block content %}
+
+    <div class="main-title">
+        <h1>Välkommen till Bibliotek-sidan</h1>
+    </div>
+    <div class="main-content">
+        <p>På denna sida redovisas uppgiften i kursmoment 5. I menyn till höger redovisas routes som använts för att lösa uppgiften.</p>
+    </div>
+    <div class="main-side">
+        <ul class="main-side-nav">
+            <li>
+                <a href="{{ absolute_url(path("library_create")) }}">Lägg till bok</a>
+            </li>
+            <li>
+                <a href="{{ absolute_url(path("library_show")) }}">Visa böcker</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

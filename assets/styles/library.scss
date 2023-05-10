@@ -1,0 +1,20 @@
+.library-outer {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.library-container {
+    display: grid;
+    gap: .5rem;
+    grid-template-rows: repeat(4,auto);
+    place-items: center;
+    width: fit-content;
+    padding: 1rem;
+    box-shadow: 0 0 25px -15px gray;
+    border-radius: 5px;
+}
+
+.library-container > img {
+    margin-inline: auto;
+}
