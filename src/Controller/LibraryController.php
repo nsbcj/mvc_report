@@ -114,7 +114,7 @@ class LibraryController extends AbstractController
         Request $request
     ): Response {
         $title = $request->request->get("title") ?? null;
-        $ISBN = $request->request->get("ISBN") ?? null;
+        $isbn = $request->request->get("isbn") ?? null;
         $author = $request->request->get("author") ?? null;
         $img = $request->request->get("img") ?? null;
 
@@ -122,7 +122,7 @@ class LibraryController extends AbstractController
 
         $library = new Library();
         $library->setTitle($title);
-        $library->setISBN($ISBN);
+        $library->setIsbn($isbn);
         $library->setAuthor($author);
         $library->setImg($img);
 
@@ -152,7 +152,7 @@ class LibraryController extends AbstractController
 
         $title = $request->request->get("title") ?? null;
 
-        $ISBN = $request->request->get("ISBN") ?? null;
+        $isbn = $request->request->get("isbn") ?? null;
 
         $author = $request->request->get("author") ?? null;
 
@@ -165,7 +165,7 @@ class LibraryController extends AbstractController
         }
 
         $book->setTitle($title);
-        $book->setISBN($ISBN);
+        $book->setIsbn($isbn);
         $book->setAuthor($author);
         $book->setImg($img);
 
