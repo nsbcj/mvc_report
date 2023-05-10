@@ -18,3 +18,17 @@
 .library-container > img {
     margin-inline: auto;
 }
+
+input#title,
+input#author,
+input#ISBN,
+input#img {
+    padding: 0.5rem;
+    display: block;
+    margin-block: 0.5rem;
+}
+
+input[submit] {
+    display: block;
+    padding: 0.5rem;
+}
