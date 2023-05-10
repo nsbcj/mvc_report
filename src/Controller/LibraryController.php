@@ -114,7 +114,7 @@ class LibraryController extends AbstractController
         Request $request
     ): Response {
         $title = $request->request->get("title") ?? null;
-        $isbn = $request->request->get("ISBN") ?? null;
+        $ISBN = $request->request->get("ISBN") ?? null;
         $author = $request->request->get("author") ?? null;
         $img = $request->request->get("img") ?? null;
 
@@ -122,7 +122,7 @@ class LibraryController extends AbstractController
 
         $library = new Library();
         $library->setTitle($title);
-        $library->setISBN($isbn);
+        $library->setISBN($ISBN);
         $library->setAuthor($author);
         $library->setImg($img);
 
@@ -148,24 +148,24 @@ class LibraryController extends AbstractController
         LibraryRepository $libraryRepository,
         Request $request
     ): Response {
-        $bookId = $request->request->get("id") ?? null;
+        $id = $request->request->get("id") ?? null;
 
         $title = $request->request->get("title") ?? null;
 
-        $isbn = $request->request->get("ISBN") ?? null;
+        $ISBN = $request->request->get("ISBN") ?? null;
 
         $author = $request->request->get("author") ?? null;
 
         $img = $request->request->get("img") ?? null;
 
-        $book = $libraryRepository->find($bookId);
+        $book = $libraryRepository->find($id);
 
         if (!$book) {
             return $this->redirectToRoute('library_show');
         }
 
         $book->setTitle($title);
-        $book->setISBN($isbn);
+        $book->setISBN($ISBN);
         $book->setAuthor($author);
         $book->setImg($img);
 
@@ -174,7 +174,7 @@ class LibraryController extends AbstractController
 
         $this->addFlash(
             "notice",
-            "Boken '{$title}' med id '{$bookId}' har updaterats"
+            "Boken '{$title}' med id '{$id}' har updaterats"
         );
 
         return $this->redirectToRoute("library_show");
@@ -187,9 +187,9 @@ class LibraryController extends AbstractController
         LibraryRepository $libraryRepository,
         Request $request
     ): Response {
-        $bookId = $request->request->get("id") ?? null;
+        $id = $request->request->get("id") ?? null;
 
-        $book = $libraryRepository->find($bookId);
+        $book = $libraryRepository->find($id);
 
         $title = $book->getTitle();
 
@@ -202,7 +202,7 @@ class LibraryController extends AbstractController
 
         $this->addFlash(
             "warning",
-            "Boken '{$title}' med id '{$bookId}' har tagits bort"
+            "Boken '{$title}' med id '{$id}' har tagits bort"
         );
 
         return $this->redirectToRoute("library_show");
