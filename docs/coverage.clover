@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1683735616">
-  <project timestamp="1683735616">
+<coverage generated="1683746892">
+  <project timestamp="1683746892">
     <file name="/home/jacobs0/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="11" elements="15" coveredelements="15"/>
@@ -790,9 +790,9 @@
       <line num="38" type="method" name="setTitle" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="40" type="stmt" count="0"/>
       <line num="42" type="stmt" count="0"/>
-      <line num="45" type="method" name="getISBN" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="45" type="method" name="getIsbn" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="47" type="stmt" count="0"/>
-      <line num="50" type="method" name="setISBN" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="50" type="method" name="setIsbn" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="52" type="stmt" count="0"/>
       <line num="54" type="stmt" count="0"/>
       <line num="57" type="method" name="getAuthor" visibility="public" complexity="1" crap="2" count="0"/>
