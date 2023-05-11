@@ -170,13 +170,13 @@ class ApiControllerJson extends AbstractController
      }
 
      /**
-      * @Route("/api/library/book/{ISBN}", name="library_book_api", methods="GET")
+      * @Route("/api/library/book/{isbn<\d+>}", name="library_book_api", methods="GET")
       */
       public function libraryBookApi(
           LibraryRepository $libraryRepository,
-          int $isbn
+          int $isbn=1000000003
       ): Response {
-          $book = $libraryRepository->findOneBy(["ISBN" => $isbn]);
+          $book = $libraryRepository->findOneBy(["isbn" => $isbn]);
 
           if (!$book) {
               return $this->redirectToRoute('library_show');
