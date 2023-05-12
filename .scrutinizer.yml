@@ -5,6 +5,8 @@ filter:
     excluded_paths: [vendor/*, test/*]
 
 build:
+    environment:
+        node: 16.14.0
     nodes:
         my-tests:
             environment:
