@@ -27,6 +27,20 @@ class SiteControllerTwig extends AbstractController
     }
 
     /**
+     * @Route("/metrics", name="metricsDoc", methods="GET")
+     */
+    public function metrics(): Response
+    {
+        $parsedown = new ParsedownExtra();
+
+        $data = [
+            "doc" => $parsedown -> text(file_get_contents('metrics/doc.markdown.twig'))
+        ]
+
+        return $this->render('metrics/index.html.twig', $data);
+    }
+
+    /**
      * @Route("/report", name="report")
      */
     public function report(): Response
