@@ -33,9 +33,11 @@ class SiteControllerTwig extends AbstractController
     {
         $parsedown = new ParsedownExtra();
 
+        $file = "content/metrics/doc.md";
+
         $data = [
-            "doc" => $parsedown -> text(file_get_contents('metrics/doc.markdown.twig'))
-        ]
+            "doc" => $parsedown -> text(file_get_contents($file))
+        ];
 
         return $this->render('metrics/index.html.twig', $data);
     }
@@ -47,7 +49,7 @@ class SiteControllerTwig extends AbstractController
     {
         $parsedown = new ParsedownExtra();
 
-        $contentFiles = glob("content/*.md");
+        $contentFiles = glob("content/reports/*.md");
 
         $parsedFiles = [];
 

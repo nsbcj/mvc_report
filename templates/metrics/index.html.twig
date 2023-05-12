@@ -5,15 +5,12 @@
 {% block title %}Library{% endblock %}
 
 {% block content %}
-
-    <div class="main-title">
-        <h1>Kodkvalitet</h1>
-    </div>
-    <div class="main-content">
-        {{ doc }}
-    </div>
-    <div class="main-side">
-    </div>
-
+<div class="main-title">
+    <h1>Kodkvalitet</h1>
+</div>
+<div class="main-content">
+    {{ doc | raw }}
+</div>
+<div class="main-side">
 </div>
 {% endblock %}
