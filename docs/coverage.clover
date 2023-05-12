@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1683824976">
-  <project timestamp="1683824976">
+<coverage generated="1683871749">
+  <project timestamp="1683871749">
     <file name="/home/jacobs0/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="11" elements="15" coveredelements="15"/>
@@ -154,9 +154,9 @@
       <line num="136" type="stmt" count="4"/>
       <line num="138" type="stmt" count="4"/>
       <line num="139" type="stmt" count="2"/>
-      <line num="140" type="stmt" count="1"/>
-      <line num="141" type="stmt" count="1"/>
-      <line num="143" type="stmt" count="2"/>
+      <line num="140" type="stmt" count="2"/>
+      <line num="141" type="stmt" count="2"/>
+      <line num="143" type="stmt" count="1"/>
       <line num="146" type="stmt" count="4"/>
       <line num="153" type="method" name="getPlayerHandAsString" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="156" type="stmt" count="1"/>
