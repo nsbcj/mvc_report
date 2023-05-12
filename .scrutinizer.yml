@@ -5,6 +5,7 @@ filter:
     excluded_paths: [vendor/*, test/*]
 
 build:
+    image: default-bionic
     environment:
         node: 16.14.0
     nodes:
