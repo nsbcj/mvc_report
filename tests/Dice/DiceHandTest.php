@@ -78,11 +78,11 @@ class DiceHandTest extends TestCase
 
         $diceHand->roll();
 
-        $diceHandValuesAsString = $diceHand->getString();
+        $diceHandAsString = $diceHand->getString();
 
         $diceHandCount = $diceHand->getNumberOfDices();
 
-        $this->assertIsString($diceHandValuesAsString[0]);
+        $this->assertIsString($diceHandAsString[0]);
 
         $this->assertEquals(2, $diceHandCount);
     }

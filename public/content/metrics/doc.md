@@ -1,19 +1,19 @@
 ##Introduktion
-Detta är en redovisningstext till uppgiften rörande analys och förbättring av kodkvalitet. Uppgiften bygger på att verktygen phpmetrics och scrutinizer använts för att analyser den kod jag skrivit under kursen. Rapporterna från verktygen ligger till grund för den analysen i denna uppgift.
+Detta är en redovisningstext till uppgiften rörande analys och förbättring av kodkvalitet. Uppgiften bygger på att verktygen phpmetrics och Scrutinizer. Dessa har använts för att analyser den kod jag skrivit under kursen. Rapporterna från verktygen ligger till grund för analysen i denna uppgift.
 ###Mättal
-Analysen av koden ska utgå från sex mätvärden: Codestyle, Coverage, Complexity, Cohesion, Coupling och CRAP. Nedan ska jag kort beskriva vad de mätvärdena representerar.
+Analysen av koden ska utgå från sex mätvärden: Codestyle, Coverage, Complexity, Cohesion, Coupling och CRAP. Nedan är en kort beskrivning vad de mätvärdena representerar.
 ####Codestyle
-I [föreläsningen](https://www.youtube.com/watch?v=T3nK2ppTru4) kopplad till kursmoment 6 uppfattar jag att codestyle beskrivs vara kopplad till kodens syntax. Alltså om koden uppfyller eller inte uppfyller de kodstandarder som är uppsatta för ett språk. Under kursmomentet har vi använts `composer csfix` för att korrigera eventuella fel kopplade till detta. `composer lint` har sedan använts för att upptäcka ytterligare fel i koden.
+I [föreläsningen](https://www.youtube.com/watch?v=T3nK2ppTru4) kopplad till kmom06 uppfattar jag att codestyle beskrivs vara kopplad till kodens syntax. Det uppfattas handla om koden uppfyller eller inte uppfyller de kodstandarder som är uppsatta för ett språk. Under kursmomentet har vi använts `composer csfix` för att korrigera eventuella fel kopplade till detta. `composer lint` har sedan använts för att upptäcka ytterligare fel i koden.
 ####Coverage
-Kod-täckning, eller covarage, har i kursen varit kopplat till kommandot `composer phpunit`. Det mätvärde som returnerats motsvarar hur stor del av koden som täcks av enhetstester. I tidigare kursmoment har jag skrivit enhetstester till delar av den kod som skrivits, varvid testerna endast täcker en begränsad del av den totala kodbasen. Mätvärdet returneras ett procenttal mellan 0 - 100.
+Kod-täckning, eller coverage, har i kursen varit kopplat till kommandot `composer phpunit`. Det mätvärde som returnerats motsvarar hur stor del av koden som täcks av enhetstester. I tidigare kursmoment har jag skrivit enhetstester till delar av den kod som skrivits, varvid testerna endast täcker en begränsad del av den totala kodbasen. Mätvärdet returneras ett procenttal mellan 0 - 100.
 ####Complexity
 I föreläsningen Software quality metrics, se [underlaget](https://dbwebb-se.github.io/mvc/lecture/L06-static-code-analysis-and-metrics/slide.html), är complexity ett av flera nämnda mätvärden. Det beskrivs kopplat till begreppet `Cyclomatic complexity`, som beskrivs vara ett mätvärde som används för att mäta ett programs komplexitet. Det returnerade mätvärdet ska, enligt beskrivning i [artikel](https://en.wikipedia.org/wiki/Cyclomatic_complexity) på Wikipedia, vara under 10 för att betraktas som enkla procedurer. Nivåerna för mätvärder kopplade till komplexitet är enligt artikeln: 1-10, 11-20, 21-50 och över 50. Jag tolkar det som att låga värden är bra, med liten komplexitet, och att höga värden innebör högre komplexitet. En komplexitet över 50 beskrivs i artikeln vara ostabil kod med mycket hög risk.
 ####Cohesion
-I föreläsningen rörande Software quality metrics, nämnd ovan, beskrivs även begreppet cohesion. Begreppet beskrivs även i en [artikel](https://en.wikipedia.org/wiki/Cohesion_(computer_science)) på Wikipedia. Min uppfattning är att mätvärdet exempelvis kan beskriva hur väl klassmetoder används i förhållande till data som ska användas i klassen. I föreläsningen beskrivs det som att en klass som uppfyller ett syfte har hög cohesion. Min uppfattning av detta är att det kan vara positivt om en klass har flera metoder, så länge varje metod har ett eget ansvar inom klassen och att klassen har ett syfte. I våra projekt har är Card och CardHand exempel på klasser som hör ihop, men var för sig har metoder som framförallt syftar till att skapa funktionalitet inom den egna klassen.
+I föreläsningen rörande Software quality metrics, nämnd ovan, beskrivs även begreppet cohesion. Begreppet beskrivs även i en [artikel](https://en.wikipedia.org/wiki/Cohesion_(computer_science)) på Wikipedia. Min uppfattning är att mätvärdet exempelvis kan beskriva hur väl klassmetoder används i förhållande till data som ska användas i klassen. I föreläsningen beskrivs det som att en klass som uppfyller ett syfte har hög cohesion. Min uppfattning är att det kan vara positivt om en klass har flera metoder. Varje metod ska ha ett eget ansvar inom klassen och klassen ska ha ett syfte. I våra projekt har är Card och CardHand exempel på klasser som hör ihop, men var för sig har metoder som framförallt syftar till att skapa funktionalitet inom den egna klassen.
 
 Det värde som genereras av phpmetrics avseende cohesion är Lack of cohesion of methods (LCOM). Enligt föreläsningen är det ett värde på hur många ansvarsområde klassen har. Det ideala är att klassen endast har ett ansvarsområde. Ju fler ansvarsområde (högre mätvärde) desto sämre är cohesion-värdet.
 ####Coupling
-Coupling-värdet beskrivs i föreläsningen, se ovan nämnt underlag, i vårt fall vara beroende av kopplingar mellan klasser. Det beskrivs vara föredraget att ha fåtal kopplingar mellan klasser. I phpmetrics beskrivs några olika mätvärden kopplade till coupling; Average afferent coupling, average efferent coupling, average instability och depth of inheritance tree. Med föreläsningsmaterialet i beaktande uppfattas average efferent coupling vara ett genomsnittsvärde för hur många klasser den genomsnittliga klassen är beroende av. Average afferent coupling uppfattas å andra sidan mäta hur många klasser som är beroende av en genomsnittlig given klass. I föreläsningsmaterialet beskrevs instabilty-index som ett värde mellan 0 och 1, där 0 representerar stabilt och 1 väldigt ostabilt.
+Coupling-värdet beskrivs i föreläsningen, se ovan nämnt underlag, vara beroende av kopplingar mellan klasser. Det beskrivs vara föredraget att ha fåtal kopplingar mellan klasser. I phpmetrics beskrivs några olika mätvärden kopplade till coupling; Average afferent coupling, average efferent coupling, average instability och depth of inheritance tree. Med föreläsningsmaterialet i beaktande uppfattas average efferent coupling vara ett genomsnittsvärde för hur många klasser den genomsnittliga klassen är beroende av. Average afferent coupling uppfattas å andra sidan mäta hur många klasser som är beroende av en genomsnittlig given klass. I föreläsningsmaterialet beskrevs instabilty-index som ett värde mellan 0 och 1, där 0 representerar stabilt och 1 väldigt ostabilt.
 
 Kombinationen mellan ett lågt coupling-värde och ett högt cohesion-värde beskrivs i föreläsningsmaterialet som positivt.
 ####CRAP
@@ -32,9 +32,9 @@ I sammanhanget visar phpmetrics den cyklomatiska komplexiteten för de otestade 
 ###Complexity
 Den cyklomatiska komplexiteten är ett riktvärde för kodens komplexitet enligt beskrivningen ovan. Enligt phpmetrics analys är min kods genomsnittliga cyklomatiska komplexitet 4,38. Att värdet är under 10, innebär att koden övergripande kan bedömas bestå av enkla procedurer.
 
-Klassen med högst cyklomatisk komplexitet är LibraryController, som har värdet 16. De tre klasser med högst cyklomatisk komplexitet är Controller-klasser. CardGame, klassen som används för att styra kortspelet, är på plats fyra och har 9 i komplexitet.
+Klassen med högst cyklomatisk komplexitet är LibraryController, som har värdet 16. De tre klasser med högst cyklomatisk komplexitet är Controller-klasser. CardGame, klassen som används för att styra kortspelet, är på plats fyra och har nio i komplexitet.
 ###Cohesion
-Phpmetrics returnerar värdet LCOM, som är beskrivit ovan. Med bakgrund av vad som beskrivs i föreläsningsmaterialet uppfattar jag att värdet ska vara så när ett som möjligt. Det högsta LCOM värdet har klassen ApiControllerJson, som har värdet sex. Detta indikerar att klassen har för många ansvarsområden. Denna klass följs av ProductController och CardGame, som har värdet fyra respektive tre.
+Phpmetrics returnerar värdet LCOM, som är beskrivit ovan. Med bakgrund av vad som beskrivs i föreläsningsmaterialet uppfattar jag att värdet ska vara så när ett som möjligt. Det högsta LCOM värdet har klassen ApiControllerJson, som har värdet sex. Detta uppfattas indikera att klassen har för många ansvarsområden. Denna klass följs av ProductController och CardGame, som har värdet fyra respektive tre.
 
 Sammanfattningsvis tror jag att det genomsnittliga LCOM-värdet är relativt bra, 1,63. Det innebär enligt min uppfattning att en genomsnittlig klass i min kodbas har 1,63 ansvarsområde.
 ###Coupling
@@ -57,7 +57,7 @@ En specifik klass som pekas ut under rubriken "violations" är ApiControllerJson
 
 En annan del som enligt rapporten kan förbättras kopplat till ApiControllerJson är att antalet publika metoder kan minskas.
 ##Scrutinizer
-###Scrutinizers badges (före ändringar)
+###Scrutinizers badges
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/nsbcj/mvc_report/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/nsbcj/mvc_report/?branch=main)
 [![Code Coverage](https://scrutinizer-ci.com/g/nsbcj/mvc_report/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/nsbcj/mvc_report/?branch=main)
 [![Build Status](https://scrutinizer-ci.com/g/nsbcj/mvc_report/badges/build.png?b=main)](https://scrutinizer-ci.com/g/nsbcj/mvc_report/build-status/main)
@@ -101,8 +101,22 @@ Den sista delen är att jag ska öka kodtäckningen genom att skriva ytterligare
 
 | Förbättring  | Före   | Efter   |
 |---|---|---|
-| Antal issues  | 16  |   |
-| Crap Score drawGame | 72 |   |
-| Kodtäckning   | 24%  |   |
+| Antal issues  | 16  | 5  |
+| Crap Score drawGame | 72 | 30  |
+| Kodtäckning   | 27%  | 32%  |
+
+Samtliga förbättringsåtgärder utgick från mätvärden i Scrutinizers rapport. Det är ett fåtal issues, bland annat kopplade till kommentarer, som jag inte kunnat lösa. Övriga issues gick förhållandevis fort, med anledning den tydliga beskrivningen av felet i rapporten.
+
+Ändringen av metoden drawGame() innebar att en del kodrader plockades bort. Bland annat kunde en if-sats tas bort, vilket jag tror påverkade Crap Score positivt. Metoden har fortfarande ett högt värde, men nu på en nivå som gör den testbar.
+
+Slutligen har kodtäckningen förbättrats ytterligare då jag skrivit tester till ytterligare tre klasser. Det stora arbetet som återstår är att skriva tester till controller-klasserna.
+
+Värdena i tabellen ovan är hämtade från Scrutinizers rapport. Vid kontroll av phpmetrics rapport har jag noterat att den cyklomatiska komplexiteten sänkt till 3,92 samt att antalet testade klasser ökat. LCOM-värdet är kvar på samma nivå, likaså coupling-värdet. Detta tänker jag beror på att ändringarna inte berört klassers förhållande till varandra.  
 
 ##Diskussion
+###Att aktivt arbeta med kodkvalitet
+Att testa koden med Scrutinizer och phpmetrics uppfattas vara en bra sätt att arbeta med koden. Det känns som ett bra sätt att hålla koll på vad som händer under utvecklingsprocessen. Jag tror även att det metodiska arbetet kan leda till att man kontinuerligt kan utveckla små delar av koden.
+###För- och nackdelar
+Jag uppfattar det som fördelaktigt att verktygen skapar enhetlighet och underbygger känslan av att man utför arbetet på ett metodiskt sätt. En nackdel kan vara att det kräver en del baskunskap för att börja använda verktygen, framförallt Scrutinizer. Innan rapporten genererades krävdes en del läsande av manualer.
+###Andra möjligheter att arbeta mot clean code
+Jag tycker att kursen erhållit flera nyttiga verktyg som kan användas för att skriva bra kod. csfix, phpmd och phpstan är exempel på detta. Det finns säkert en mängd andra verktyg, men jag tycker att dessa givit en bra grund. Det ska bli intressant att skriva ny kod i projektet. Det finns då en möjlighet att göra koden lite bättre redan från början.
