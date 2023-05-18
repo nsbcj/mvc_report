@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1684436521">
-  <project timestamp="1684436521">
+<coverage generated="1684437849">
+  <project timestamp="1684437849">
     <file name="/home/jacobs0/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="14" coveredelements="14"/>
@@ -39,8 +39,8 @@
       <line num="14" type="stmt" count="24"/>
       <line num="17" type="method" name="add" visibility="public" complexity="1" crap="1" count="17"/>
       <line num="19" type="stmt" count="17"/>
-      <line num="22" type="method" name="resetHand" visibility="public" complexity="1" crap="1" count="7"/>
-      <line num="24" type="stmt" count="7"/>
+      <line num="22" type="method" name="resetHand" visibility="public" complexity="1" crap="1" count="6"/>
+      <line num="24" type="stmt" count="6"/>
       <line num="30" type="method" name="getHandSum" visibility="public" complexity="2" crap="2" count="8"/>
       <line num="32" type="stmt" count="8"/>
       <line num="33" type="stmt" count="8"/>
@@ -136,10 +136,10 @@
       <line num="79" type="stmt" count="13"/>
       <line num="81" type="stmt" count="13"/>
       <line num="82" type="stmt" count="13"/>
-      <line num="88" type="method" name="reset" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="90" type="stmt" count="3"/>
-      <line num="92" type="stmt" count="3"/>
-      <line num="94" type="stmt" count="3"/>
+      <line num="88" type="method" name="reset" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="90" type="stmt" count="2"/>
+      <line num="92" type="stmt" count="2"/>
+      <line num="94" type="stmt" count="2"/>
       <line num="100" type="method" name="drawCard" visibility="public" complexity="1" crap="1" count="9"/>
       <line num="104" type="stmt" count="9"/>
       <line num="110" type="method" name="houseDraw" visibility="public" complexity="2" crap="2" count="1"/>
@@ -155,14 +155,14 @@
       <line num="139" type="stmt" count="2"/>
       <line num="140" type="stmt" count="1"/>
       <line num="141" type="stmt" count="1"/>
-      <line num="143" type="stmt" count="2"/>
+      <line num="143" type="stmt" count="1"/>
       <line num="146" type="stmt" count="4"/>
       <line num="153" type="method" name="getPlayerHandAsString" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="156" type="stmt" count="1"/>
       <line num="162" type="method" name="setGameDone" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="164" type="stmt" count="1"/>
-      <line num="170" type="method" name="unsetGameDone" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="172" type="stmt" count="3"/>
+      <line num="170" type="method" name="unsetGameDone" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="172" type="stmt" count="2"/>
       <line num="178" type="method" name="getGameStats" visibility="public" complexity="1" crap="1" count="4"/>
       <line num="180" type="stmt" count="4"/>
       <line num="181" type="stmt" count="4"/>
