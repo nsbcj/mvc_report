@@ -162,6 +162,7 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 5,
         "instability": 0.83,
+        "numberOfUnitTests": 15,
         "violations": {}
     },
     {
@@ -253,6 +254,7 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 2,
         "instability": 0.67,
+        "numberOfUnitTests": 4,
         "violations": {}
     },
     {
@@ -324,6 +326,7 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 1,
         "instability": 0.5,
+        "numberOfUnitTests": 2,
         "violations": {}
     },
     {
@@ -415,6 +418,7 @@ var classes = [
         "afferentCoupling": 2,
         "efferentCoupling": 2,
         "instability": 0.5,
+        "numberOfUnitTests": 4,
         "violations": {}
     },
     {
@@ -543,6 +547,7 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 6,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -692,6 +697,7 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 7,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -835,6 +841,7 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 8,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -953,6 +960,7 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 6,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1037,6 +1045,7 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 3,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1176,6 +1185,7 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 7,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1276,6 +1286,7 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 7,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1299,6 +1310,13 @@ var classes = [
                 "_type": "Hal\\Metric\\FunctionMetric"
             },
             {
+                "name": "metrics",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
                 "name": "report",
                 "role": null,
                 "public": true,
@@ -1313,13 +1331,13 @@ var classes = [
                 "_type": "Hal\\Metric\\FunctionMetric"
             }
         ],
-        "nbMethodsIncludingGettersSetters": 4,
-        "nbMethods": 4,
+        "nbMethodsIncludingGettersSetters": 5,
+        "nbMethods": 5,
         "nbMethodsPrivate": 0,
-        "nbMethodsPublic": 4,
+        "nbMethodsPublic": 5,
         "nbMethodsGetter": 0,
         "nbMethodsSetters": 0,
-        "wmc": 5,
+        "wmc": 6,
         "ccn": 2,
         "ccnMethodMax": 2,
         "externals": [
@@ -1332,6 +1350,9 @@ var classes = [
             "ParsedownExtra",
             "Symfony\\Component\\Routing\\Annotation\\Route",
             "Symfony\\Component\\HttpFoundation\\Response",
+            "ParsedownExtra",
+            "Symfony\\Component\\Routing\\Annotation\\Route",
+            "Symfony\\Component\\HttpFoundation\\Response",
             "Symfony\\Component\\Routing\\Annotation\\Route"
         ],
         "parents": [
@@ -1339,37 +1360,38 @@ var classes = [
         ],
         "implements": [],
         "lcom": 1,
-        "length": 44,
-        "vocabulary": 19,
-        "volume": 186.91,
-        "difficulty": 1.94,
-        "effort": 362.82,
-        "level": 0.52,
-        "bugs": 0.06,
-        "time": 20,
-        "intelligentContent": 96.29,
-        "number_operators": 11,
-        "number_operands": 33,
+        "length": 58,
+        "vocabulary": 22,
+        "volume": 258.65,
+        "difficulty": 2.15,
+        "effort": 556.09,
+        "level": 0.47,
+        "bugs": 0.09,
+        "time": 31,
+        "intelligentContent": 120.3,
+        "number_operators": 15,
+        "number_operands": 43,
         "number_operators_unique": 2,
-        "number_operands_unique": 17,
-        "cloc": 21,
-        "loc": 42,
-        "lloc": 22,
-        "mi": 99,
-        "mIwoC": 54.54,
-        "commentWeight": 44.46,
+        "number_operands_unique": 20,
+        "cloc": 24,
+        "loc": 52,
+        "lloc": 29,
+        "mi": 94.37,
+        "mIwoC": 50.94,
+        "commentWeight": 43.43,
         "kanDefect": 0.38,
         "relativeStructuralComplexity": 4,
-        "relativeDataComplexity": 1.33,
-        "relativeSystemComplexity": 5.33,
-        "totalStructuralComplexity": 16,
-        "totalDataComplexity": 5.33,
-        "totalSystemComplexity": 21.33,
+        "relativeDataComplexity": 1.67,
+        "relativeSystemComplexity": 5.67,
+        "totalStructuralComplexity": 20,
+        "totalDataComplexity": 8.33,
+        "totalSystemComplexity": 28.33,
         "package": "App\\Controller\\",
         "pageRank": 0.01,
         "afferentCoupling": 0,
         "efferentCoupling": 4,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1467,6 +1489,7 @@ var classes = [
         "afferentCoupling": 5,
         "efferentCoupling": 1,
         "instability": 0.17,
+        "numberOfUnitTests": 6,
         "violations": {}
     },
     {
@@ -1546,6 +1569,7 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 0,
         "instability": 0,
+        "numberOfUnitTests": 3,
         "violations": {}
     },
     {
@@ -1617,6 +1641,7 @@ var classes = [
         "afferentCoupling": 2,
         "efferentCoupling": 1,
         "instability": 0.33,
+        "numberOfUnitTests": 4,
         "violations": {}
     },
     {
@@ -1733,6 +1758,7 @@ var classes = [
         "afferentCoupling": 6,
         "efferentCoupling": 1,
         "instability": 0.14,
+        "numberOfUnitTests": 13,
         "violations": {}
     },
     {
@@ -1789,6 +1815,7 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 1,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1886,6 +1913,7 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 1,
         "instability": 0.5,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1958,6 +1986,7 @@ var classes = [
         "afferentCoupling": 2,
         "efferentCoupling": 0,
         "instability": 0,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -2029,6 +2058,7 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 1,
         "instability": 0.5,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -2127,6 +2157,7 @@ var classes = [
         "afferentCoupling": 2,
         "efferentCoupling": 0,
         "instability": 0,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -2205,6 +2236,7 @@ var classes = [
         "afferentCoupling": 2,
         "efferentCoupling": 0,
         "instability": 0,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -2286,6 +2318,7 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 3,
         "instability": 0.75,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -2367,6 +2400,7 @@ var classes = [
         "afferentCoupling": 2,
         "efferentCoupling": 3,
         "instability": 0.6,
+        "numberOfUnitTests": 0,
         "violations": {}
     }
 ]

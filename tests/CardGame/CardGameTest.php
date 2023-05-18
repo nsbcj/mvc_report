@@ -187,7 +187,7 @@ class CardGameTest extends TestCase
 
         $playerPercentage = $game->getPlayerDrawPercentage();
 
-        $this->LessThan($playerPercentage, 100);
+        $this->assertLessThan(100, $playerPercentage);
     }
 
     /**

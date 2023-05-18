@@ -113,9 +113,9 @@ class LibraryController extends AbstractController
         ManagerRegistry $doctrine,
         Request $request
     ): Response {
-        $title = $request->request->get("title") ?? null;
-        $isbn = $request->request->get("ISBN") ?? null;
-        $author = $request->request->get("author") ?? null;
+        $title = $request->request->get("title");
+        $isbn = $request->request->get("ISBN");
+        $author = $request->request->get("author");
         $img = $request->request->get("img") ?? null;
 
         $entityManager = $doctrine->getManager();
@@ -148,13 +148,13 @@ class LibraryController extends AbstractController
         LibraryRepository $libraryRepository,
         Request $request
     ): Response {
-        $bookId = $request->request->get("id") ?? null;
+        $bookId = $request->request->get("id");
 
-        $title = $request->request->get("title") ?? null;
+        $title = $request->request->get("title");
 
-        $isbn = $request->request->get("ISBN") ?? null;
+        $isbn = $request->request->get("ISBN");
 
-        $author = $request->request->get("author") ?? null;
+        $author = $request->request->get("author");
 
         $img = $request->request->get("img") ?? null;
 

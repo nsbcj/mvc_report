@@ -36,7 +36,7 @@ class Card
         return $res;
     }
 
-    public function getCardValue(): int
+    public function getCardValue(): ?int
     {
         return $this->value;
     }
