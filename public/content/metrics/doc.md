@@ -119,4 +119,4 @@ Att testa koden med Scrutinizer och phpmetrics uppfattas vara en bra sätt att a
 ###För- och nackdelar
 Jag uppfattar det som fördelaktigt att verktygen skapar enhetlighet och underbygger känslan av att man utför arbetet på ett metodiskt sätt. En nackdel kan vara att det kräver en del baskunskap för att börja använda verktygen, framförallt Scrutinizer. Innan rapporten genererades krävdes en del läsande av manualer.
 ###Andra möjligheter att arbeta mot clean code
-Jag tycker att kursen erhållit flera nyttiga verktyg som kan användas för att skriva bra kod. csfix, phpmd och phpstan är exempel på detta. Det finns säkert en mängd andra verktyg, men jag tycker att dessa givit en bra grund. Det ska bli intressant att skriva ny kod i projektet. Det finns då en möjlighet att göra koden lite bättre redan från början.
+Jag uppfattar att kursen inkluderat flera verktyg som kan användas för att skriva bra kod. csfix, phpmd och phpstan är exempel på detta. Det finns säkert en mängd andra verktyg, men jag tycker att dessa givit en bra grund. Det ska bli intressant att skriva ny kod i projektet. Det finns då en möjlighet att göra koden lite bättre redan från början.
