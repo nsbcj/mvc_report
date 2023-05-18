@@ -26,8 +26,6 @@ class Card
      */
     public function getCard(): array
     {
-        $res = [];
-
         $res = [
             "type" => $this->type,
             "value" => $this->value

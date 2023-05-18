@@ -75,8 +75,6 @@ class CardGameController extends AbstractController
     public function initGame(
         SessionInterface $session
     ): Response {
-        $game = $session->get("game");
-
         $game = new CardGame();
 
         $game->init();
@@ -97,9 +95,7 @@ class CardGameController extends AbstractController
 
         $draw = $request->request->get("draw") ?? null;
 
-        $hold = $request->request->get("hold") ?? null;
-
-        if (isset($draw) && $draw == "true") {
+        if (isset($draw)) {
             $game->player->hand->add($game->deck);
             if (!$game->checkPlayerHand($game->player)) {
                 $game->setGameDone();
@@ -110,17 +106,18 @@ class CardGameController extends AbstractController
                     "{$game->winner} har vunnit"
                 );
             }
+            $session->set("game", $game);
+            return $this->redirectToRoute("cardGamePlay");
         }
-        if (isset($hold) && $hold == "true") {
-            $game->houseDraw();
-            $game->setGameDone();
-            $game->setWinner();
-            $classname = ($game->winner == "House") ? "warning" : "notice";
-            $this->addFlash(
-                $classname,
-                "{$game->winner} har vunnit"
-            );
-        }
+
+        $game->houseDraw();
+        $game->setGameDone();
+        $game->setWinner();
+        $classname = ($game->winner == "House") ? "warning" : "notice";
+        $this->addFlash(
+            $classname,
+            "{$game->winner} har vunnit"
+        );
         $session->set("game", $game);
         return $this->redirectToRoute("cardGamePlay");
     }

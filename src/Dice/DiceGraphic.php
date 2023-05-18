@@ -23,6 +23,6 @@ class DiceGraphic extends Dice
 
     public function getAsString(): string
     {
-        return $this->representation[$this->value - 1];
+        return $this->representation[$this->getValue() - 1];
     }
 }
