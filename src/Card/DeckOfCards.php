@@ -26,7 +26,7 @@ class DeckOfCards
         $this->series = [];
     }
 
-    private function addCard(string $type, int $value): void
+    protected function addCard(string $type, int $value): void
     {
         $card = new CardGraphic();
         $card->setCard($type, $value);

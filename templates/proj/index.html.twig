@@ -1,0 +1,150 @@
+{# templates/proj/index.html.twig #}
+
+{% extends('proj/base.html.twig') %}
+
+{% block title %}Projekt{% endblock %}
+
+{% block content %}
+    <div class="main-title proj-main-title">
+        {% if player is defined %}
+        <h1>Välkommen {{ player }}!</h1>
+        {% else %}
+        <h1>Välkommen till projektsidan!</h1>
+        {% endif %}
+    </div>
+
+    <div class="main-content">
+        {{ include('dicegame/flash.html.twig') }}
+        {% if player is defined %}
+        <p>Spelrunda inledd.</p>
+        <div class="proj-main-header-forms">
+            <form action="{{ path('projectLogout') }}" method="post">
+                <input class="button logout" type="submit" name="logout" value="Lämna bordet">
+            </form>
+            <form action="{{ path('projectReset') }}" method="post">
+                <input class="button reset" type="submit" name="reset" value="Återställ runda">
+            </form>
+        </div>
+        <div class="main-card-table">
+            <div class="proj-card-table-grid">
+                <div class="house-title">
+                    <h3>{{ house }}</h3>
+                </div>
+                {% for hand in houseHand %}
+                <div class="house-hand">
+                    <div class="card-container">
+                        {% for card in hand["handAsString"] %}
+                        {% if activeHandIndex == -1 %}
+                            <span class="card-sprite {{card}}"></span>
+                        {% else %}
+                            <span class="card-sprite {{card}} hidden"></span>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% if activeHandIndex == -1 %}
+                    <div class="player-stats">
+                        <div class="player-stats-wrapper">
+                            <span>Summa:</span><span class="player-hand-sum"> {{ hand["handAsSum"] }}</span>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <div class="deck">
+                    <img width="91" height="136" src="{{ asset("img/card-game.svg") }}" alt="deck">
+                    <p>{{ deckLength }}</p>
+                </div>
+                <div class="player-hand-wrapper">
+                    <div class="player-hand-card-wrapper">
+                    {% for idx, hand in playerHands %}
+                        {% if idx == activeHandIndex %}
+                        <div class="player-hand active">
+                        {% else %}
+                        <div class="player-hand">
+                        {% endif %}
+                            <div class="card-container" data-bet="{{ hand["handBet"] }}">
+                                {% for card in hand["handAsString"] %}
+                                <span class="card-sprite {{card}}"></span>
+                                {% endfor %}
+                            </div>
+                            <div class="player-stats">
+                                <div class="player-stats-wrapper">
+                                    <span>Hand:</span><span class="player-hand-number">{{ idx + 1 }}</span>
+                                </div>
+                                <div class="player-stats-wrapper">
+                                    <span>Summa:</span><span class="player-hand-sum"> {{ hand["handAsSum"] }}</span>
+                                </div>
+                                {% if winners[idx]["winner"] is defined %}
+                                <div class="player-stats-wrapper">
+                                    {% if winners[idx]["winner"] %}
+                                        <span class="winner">Vinst</>
+                                    {% elseif winners[idx]["tie"] %}
+                                        <span class="tie">Lika</>
+                                    {% else %}
+                                        <span class="looser">Förlust</>
+                                    {% endif %}
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% if hand["splitable"] and idx == activeHandIndex%}
+                            <form class="split" action="{{ path('projectSplitHand') }}" method="post">
+                                <input type="hidden" name="hand" value={{ idx }}>
+                                <input type="hidden" name="bet" value={{ hand["handBet"] }}>
+                                <input class="button split" type="submit" name="split" value="Splitta">
+                            </form>
+                            {% endif %}
+                            {% if hand["handAsString"]|length == 2 and idx == activeHandIndex %}
+                            <form class="double" action="{{ path('projectDoubleHand') }}" method="post">
+                                <input type="hidden" name="hand" value={{ idx }}>
+                                <input type="hidden" name="bet" value={{ hand["handBet"] }}>
+                                <input class="button double" type="submit" name="double" value="Dubbla">
+                            </form>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    </div>
+                    {% if start and activeHandIndex != -1 %}
+                    <div class="player-hand-form-wrapper">
+                        <form action="{{ path('projectDraw') }}" method="post">
+                            <input class="button draw" type="submit" name="draw" value="Dra kort">
+                        </form>
+                        <form action="{{ path('projectHold') }}" method="post">
+                            <input class="button hold" type="submit" name="hold" value="Stanna">
+                        </form>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="player-title">
+                    {% if playerHandCount < 3 and not start %}
+                    <form class="addhand" action="{{ path('projectAddHand') }}" method="post">
+                        <input type="number" name="bet" id="bet" min=10 max="{{ playerBalance }}" placeholder="Skriv in summa att placera på ny hand" step=10 required autofocus>
+                        <input class="button add" type="submit" value="+" name="submitbet">
+                    </form>
+                    {% endif %}
+                    {% if playerHandCount > 0 and not start %}
+                    <form action="{{ path('projectInitRound') }}" method="post">
+                        <input class="button start" type="submit" value="Starta runda" name="start">
+                    </form>
+                    {% endif %}
+                    {% if done %}
+                    <form action="{{ path('projectReset') }}" method="post">
+                        <input class="button next" type="submit" value="Nästa runda" name="proceed">
+                    </form>
+                    {% endif %}
+                    <h3>{{ player }}</h3>
+                    <p>Balans: {{ playerBalance }}</p>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <fieldset>
+            <h3>Välj spelarnamn</h3>
+            <form action="{{ path('projectInit') }}" method="post">
+                <input type="text" name="name" id="name" minlength=3 pattern="[A-Za-z0-9]{3,}" placeholder="Skriv spelarnamn, utan mellanslag" required>
+                <input class="button init" type="submit" name="start" value="Starta">
+            </form>
+        </fieldset>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -115,6 +115,16 @@ class CardGame
     }
 
     /**
+     * Calculating if house should draw more cards, depending on draw percentage. House is set to draw if drawpercentage is equal to or greater than 50%.
+     */
+    public function houseDrawProj(): void
+    {
+        while ($this->getHouseDrawPercentage() >= 50) {
+            $this->house->hand->add($this->deck);
+        }
+    }
+
+    /**
      * Checks if player or house hand has att total sum less or equal to 21. Returns boolean.
      */
     public function checkPlayerHand(
