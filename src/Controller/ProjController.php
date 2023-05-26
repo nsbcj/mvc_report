@@ -193,6 +193,14 @@ class ProjController extends AbstractController
         $game = $session->get("game") ?? null;
 
         if(isset($game)) {
+            if($game->player->wallet->getBalance() < $bet) {
+                $this->addFlash(
+                    "warning",
+                    "{$game->player->name} balance is not enough to split"
+                );
+
+                return $this->redirectToRoute("project");
+            }
             $game->player->splitPlayerHand($handIdx);
 
             $game->player->wallet->withdrawBalance($bet);
@@ -222,6 +230,14 @@ class ProjController extends AbstractController
         $game = $session->get("game") ?? null;
 
         if(isset($game)) {
+            if($game->player->wallet->getBalance() < $bet) {
+                $this->addFlash(
+                    "warning",
+                    "{$game->player->name} balance is not enough to double"
+                );
+
+                return $this->redirectToRoute("project");
+            }
             $game->player->hands[$handIdx]->doubleBet();
 
             $game->player->wallet->withdrawBalance($bet);

@@ -86,17 +86,18 @@ class CardHand
     public function getProjHandSum(): int
     {
         $sum = 0;
-        foreach ($this->series as $value) {
-            $cardValue = $value->getCardValue();
-            switch ($cardValue) {
-                case $cardValue > 10:
+        $values = $this->getHandValues();
+        $descValues = krsort($values);
+        foreach ($values as $value) {
+            switch ($value) {
+                case $value > 10:
                     $sum += 10;
                     break;
-                case $cardValue == 1 && $sum < 11:
+                case $value == 1 && $sum < 11:
                     $sum += 11;
                     break;
                 default:
-                    $sum += $cardValue;
+                    $sum += $value;
                     break;
             }
         }

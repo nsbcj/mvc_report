@@ -134,6 +134,8 @@ class ProjPlayer
         $second = $activeHand->getCards()[1];
         $this->hands[$idx]->setCard($first);
         $this->addHand($activeHand->bet, $second);
+        $lastHand = array_pop($this->hands);
+        array_splice($this->hands, $idx, 0, [$lastHand]);
     }
 
     public function getPlayerHandSum(

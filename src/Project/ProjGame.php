@@ -103,13 +103,16 @@ class ProjGame
                  "return" => 0,
                  "tie" => false
              ];
-             $playerUnder = ($cardHand->getProjHandSum() <= 21);
-             $houseUnder = ($this->house->getTotalHandSums() <= 21);
+             $playerHandSum = $cardHand->getProjHandSum();
+             $houseHandSum = $this->house->getTotalHandSums();
+             $playerUnder = ($playerHandSum <= 21);
+             $houseUnder = ($houseHandSum <= 21);
+             $playerHandLengthIsTwo = (count($cardHand->getHandAsString()) == 2);
              switch ($cardHand) {
                  case !$playerUnder:
                      $res["winner"] = false;
                      break;
-                 case (count($cardHand->getHandAsString()) == 2 && $cardHand->getProjHandSum() == 21 && $cardHand->getProjHandSum() > $this->house->getTotalHandSums()):
+                 case ($playerHandLengthIsTwo && $playerHandSum == 21 && $houseHandSum != 21):
                      $res["winner"]= true;
                      $res["return"] = $cardHand->bet * 2.5;
                      break;
@@ -117,11 +120,11 @@ class ProjGame
                      $res["winner"] = true;
                      $res["return"] = $cardHand->bet * 2;
                      break;
-                 case ($cardHand->getProjHandSum() > $this->house->getTotalHandSums()):
+                 case ($playerHandSum > $houseHandSum):
                      $res["winner"] = true;
                      $res["return"] = $cardHand->bet * 2;
                      break;
-                 case ($cardHand->getProjHandSum() < $this->house->getTotalHandSums()):
+                 case ($playerHandSum < $houseHandSum):
                      $res["winner"] = false;
                      break;
                  default:
