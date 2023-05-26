@@ -66,15 +66,50 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Card-CardHand.html#method_add"
         },                {
+            "fqsen": "\\App\\Card\\CardHand\u003A\u003AsetCard\u0028\u0029",
+            "name": "setCard",
+            "summary": "",
+            "url": "classes/App-Card-CardHand.html#method_setCard"
+        },                {
+            "fqsen": "\\App\\Card\\CardHand\u003A\u003AgetCards\u0028\u0029",
+            "name": "getCards",
+            "summary": "",
+            "url": "classes/App-Card-CardHand.html#method_getCards"
+        },                {
+            "fqsen": "\\App\\Card\\CardHand\u003A\u003AsetBet\u0028\u0029",
+            "name": "setBet",
+            "summary": "",
+            "url": "classes/App-Card-CardHand.html#method_setBet"
+        },                {
+            "fqsen": "\\App\\Card\\CardHand\u003A\u003AdoubleBet\u0028\u0029",
+            "name": "doubleBet",
+            "summary": "",
+            "url": "classes/App-Card-CardHand.html#method_doubleBet"
+        },                {
+            "fqsen": "\\App\\Card\\CardHand\u003A\u003AgetBet\u0028\u0029",
+            "name": "getBet",
+            "summary": "",
+            "url": "classes/App-Card-CardHand.html#method_getBet"
+        },                {
             "fqsen": "\\App\\Card\\CardHand\u003A\u003AresetHand\u0028\u0029",
             "name": "resetHand",
             "summary": "",
             "url": "classes/App-Card-CardHand.html#method_resetHand"
         },                {
+            "fqsen": "\\App\\Card\\CardHand\u003A\u003Ahold\u0028\u0029",
+            "name": "hold",
+            "summary": "",
+            "url": "classes/App-Card-CardHand.html#method_hold"
+        },                {
             "fqsen": "\\App\\Card\\CardHand\u003A\u003AgetHandSum\u0028\u0029",
             "name": "getHandSum",
             "summary": "",
             "url": "classes/App-Card-CardHand.html#method_getHandSum"
+        },                {
+            "fqsen": "\\App\\Card\\CardHand\u003A\u003AgetProjHandSum\u0028\u0029",
+            "name": "getProjHandSum",
+            "summary": "",
+            "url": "classes/App-Card-CardHand.html#method_getProjHandSum"
         },                {
             "fqsen": "\\App\\Card\\CardHand\u003A\u003AgetHandValues\u0028\u0029",
             "name": "getHandValues",
@@ -86,10 +121,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Card-CardHand.html#method_getHandAsString"
         },                {
+            "fqsen": "\\App\\Card\\CardHand\u003A\u003AisSplitable\u0028\u0029",
+            "name": "isSplitable",
+            "summary": "check\u0020if\u0020hand\u0020is\u0020splitable",
+            "url": "classes/App-Card-CardHand.html#method_isSplitable"
+        },                {
             "fqsen": "\\App\\Card\\CardHand\u003A\u003A\u0024series",
             "name": "series",
             "summary": "",
             "url": "classes/App-Card-CardHand.html#property_series"
+        },                {
+            "fqsen": "\\App\\Card\\CardHand\u003A\u003A\u0024bet",
+            "name": "bet",
+            "summary": "",
+            "url": "classes/App-Card-CardHand.html#property_bet"
+        },                {
+            "fqsen": "\\App\\Card\\CardHand\u003A\u003A\u0024active",
+            "name": "active",
+            "summary": "",
+            "url": "classes/App-Card-CardHand.html#property_active"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards",
             "name": "DeckOfCards",
@@ -190,6 +240,11 @@ Search.appendIndex(
             "name": "houseDraw",
             "summary": "Calculating\u0020if\u0020house\u0020should\u0020draw\u0020more\u0020cards,\u0020depending\u0020on\u0020draw\u0020percentage.\u0020House\u0020is\u0020set\u0020to\u0020draw\u0020if\u0020drawpercentage\u0020is\u0020equal\u0020to\u0020or\u0020greater\u0020than\u002050\u0025.",
             "url": "classes/App-CardGame-CardGame.html#method_houseDraw"
+        },                {
+            "fqsen": "\\App\\CardGame\\CardGame\u003A\u003AhouseDrawProj\u0028\u0029",
+            "name": "houseDrawProj",
+            "summary": "Calculating\u0020if\u0020house\u0020should\u0020draw\u0020more\u0020cards,\u0020depending\u0020on\u0020draw\u0020percentage.\u0020House\u0020is\u0020set\u0020to\u0020draw\u0020if\u0020drawpercentage\u0020is\u0020equal\u0020to\u0020or\u0020greater\u0020than\u002050\u0025.",
+            "url": "classes/App-CardGame-CardGame.html#method_houseDrawProj"
         },                {
             "fqsen": "\\App\\CardGame\\CardGame\u003A\u003AcheckPlayerHand\u0028\u0029",
             "name": "checkPlayerHand",
@@ -871,6 +926,191 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Repository-ProductRepository.html#method_remove"
         },                {
+            "fqsen": "\\App\\Controller\\ProjController",
+            "name": "ProjController",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Aproject\u0028\u0029",
+            "name": "project",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_project"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AprojectAbout\u0028\u0029",
+            "name": "projectAbout",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_projectAbout"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AprojectInit\u0028\u0029",
+            "name": "projectInit",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_projectInit"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AprojectLogout\u0028\u0029",
+            "name": "projectLogout",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_projectLogout"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AprojectDraw\u0028\u0029",
+            "name": "projectDraw",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_projectDraw"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AprojectHold\u0028\u0029",
+            "name": "projectHold",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_projectHold"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AprojectSplitHand\u0028\u0029",
+            "name": "projectSplitHand",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_projectSplitHand"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AprojectDoubleHand\u0028\u0029",
+            "name": "projectDoubleHand",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_projectDoubleHand"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AprojectAddHand\u0028\u0029",
+            "name": "projectAddHand",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_projectAddHand"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AprojectInitRound\u0028\u0029",
+            "name": "projectInitRound",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_projectInitRound"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AprojectReset\u0028\u0029",
+            "name": "projectReset",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_projectReset"
+        },                {
+            "fqsen": "\\App\\Project\\ProjDeckOfCards",
+            "name": "ProjDeckOfCards",
+            "summary": "",
+            "url": "classes/App-Project-ProjDeckOfCards.html"
+        },                {
+            "fqsen": "\\App\\Project\\ProjDeckOfCards\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructor\u0020method\u0020creating\u0020deck\u0020for\u0020project.\u0020Deck\u0020is\u0020constructed\u0020based\u0020on\u0020DeckOfCards\u0020class.",
+            "url": "classes/App-Project-ProjDeckOfCards.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Project\\ProjDeckOfCards\u003A\u003Ainit\u0028\u0029",
+            "name": "init",
+            "summary": "Method\u0020initiating\u0020a\u0020ProjDeckOfCards\u0020with\u0020countOfDecks\u0020DeckOfCards",
+            "url": "classes/App-Project-ProjDeckOfCards.html#method_init"
+        },                {
+            "fqsen": "\\App\\Project\\ProjDeckOfCards\u003A\u003A\u0024countOfDecks",
+            "name": "countOfDecks",
+            "summary": "",
+            "url": "classes/App-Project-ProjDeckOfCards.html#property_countOfDecks"
+        },                {
+            "fqsen": "\\App\\Project\\ProjGame",
+            "name": "ProjGame",
+            "summary": "",
+            "url": "classes/App-Project-ProjGame.html"
+        },                {
+            "fqsen": "\\App\\Project\\ProjGame\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructor\u0020method\u0020creating\u0020game\u0020for\u0020project.",
+            "url": "classes/App-Project-ProjGame.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Project\\ProjGame\u003A\u003Ainit\u0028\u0029",
+            "name": "init",
+            "summary": "Method\u0020initiating\u0020a\u0020Game",
+            "url": "classes/App-Project-ProjGame.html#method_init"
+        },                {
+            "fqsen": "\\App\\Project\\ProjGame\u003A\u003A\u0024start",
+            "name": "start",
+            "summary": "",
+            "url": "classes/App-Project-ProjGame.html#property_start"
+        },                {
+            "fqsen": "\\App\\Project\\ProjGame\u003A\u003Astop\u0028\u0029",
+            "name": "stop",
+            "summary": "Method\u0020setting\u0020game\u0020as\u0020stopped",
+            "url": "classes/App-Project-ProjGame.html#method_stop"
+        },                {
+            "fqsen": "\\App\\Project\\ProjGame\u003A\u003AsetDone\u0028\u0029",
+            "name": "setDone",
+            "summary": "Method\u0020setting\u0020player\u0020game\u0020as\u0020done",
+            "url": "classes/App-Project-ProjGame.html#method_setDone"
+        },                {
+            "fqsen": "\\App\\Project\\ProjGame\u003A\u003AsetUnDone\u0028\u0029",
+            "name": "setUnDone",
+            "summary": "Method\u0020setting\u0020player\u0020game\u0020as\u0020undone",
+            "url": "classes/App-Project-ProjGame.html#method_setUnDone"
+        },                {
+            "fqsen": "\\App\\Project\\ProjGame\u003A\u003AautoPlay\u0028\u0029",
+            "name": "autoPlay",
+            "summary": "autoPlay\u0020method\u0020for\u0020CardHand",
+            "url": "classes/App-Project-ProjGame.html#method_autoPlay"
+        },                {
+            "fqsen": "\\App\\Project\\ProjGame\u003A\u003AcheckWinner\u0028\u0029",
+            "name": "checkWinner",
+            "summary": "return\u0020if\u0020cardHand\u0020is\u0020winner",
+            "url": "classes/App-Project-ProjGame.html#method_checkWinner"
+        },                {
+            "fqsen": "\\App\\Project\\ProjGame\u003A\u003AsetWinners\u0028\u0029",
+            "name": "setWinners",
+            "summary": "return\u0020winners\u0020for\u0020each\u0020hand",
+            "url": "classes/App-Project-ProjGame.html#method_setWinners"
+        },                {
+            "fqsen": "\\App\\Project\\ProjGame\u003A\u003A\u0024player",
+            "name": "player",
+            "summary": "",
+            "url": "classes/App-Project-ProjGame.html#property_player"
+        },                {
+            "fqsen": "\\App\\Project\\ProjGame\u003A\u003A\u0024house",
+            "name": "house",
+            "summary": "",
+            "url": "classes/App-Project-ProjGame.html#property_house"
+        },                {
+            "fqsen": "\\App\\Project\\ProjGame\u003A\u003A\u0024deck",
+            "name": "deck",
+            "summary": "",
+            "url": "classes/App-Project-ProjGame.html#property_deck"
+        },                {
+            "fqsen": "\\App\\Project\\ProjGame\u003A\u003A\u0024winners",
+            "name": "winners",
+            "summary": "",
+            "url": "classes/App-Project-ProjGame.html#property_winners"
+        },                {
+            "fqsen": "\\App\\Project\\ProjGame\u003A\u003A\u0024done",
+            "name": "done",
+            "summary": "",
+            "url": "classes/App-Project-ProjGame.html#property_done"
+        },                {
+            "fqsen": "\\App\\Project\\ProjWallet",
+            "name": "ProjWallet",
+            "summary": "",
+            "url": "classes/App-Project-ProjWallet.html"
+        },                {
+            "fqsen": "\\App\\Project\\ProjWallet\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Project-ProjWallet.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Project\\ProjWallet\u003A\u003AsetBalance\u0028\u0029",
+            "name": "setBalance",
+            "summary": "",
+            "url": "classes/App-Project-ProjWallet.html#method_setBalance"
+        },                {
+            "fqsen": "\\App\\Project\\ProjWallet\u003A\u003AwithdrawBalance\u0028\u0029",
+            "name": "withdrawBalance",
+            "summary": "",
+            "url": "classes/App-Project-ProjWallet.html#method_withdrawBalance"
+        },                {
+            "fqsen": "\\App\\Project\\ProjWallet\u003A\u003AgetBalance\u0028\u0029",
+            "name": "getBalance",
+            "summary": "",
+            "url": "classes/App-Project-ProjWallet.html#method_getBalance"
+        },                {
+            "fqsen": "\\App\\Project\\ProjWallet\u003A\u003A\u0024balance",
+            "name": "balance",
+            "summary": "",
+            "url": "classes/App-Project-ProjWallet.html#property_balance"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -905,6 +1145,11 @@ Search.appendIndex(
             "name": "App",
             "summary": "",
             "url": "namespaces/app.html"
+        },                {
+            "fqsen": "\\App\\Project",
+            "name": "Project",
+            "summary": "",
+            "url": "namespaces/app-project.html"
         },                {
             "fqsen": "\\App\\Repository",
             "name": "Repository",
