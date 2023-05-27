@@ -28,10 +28,11 @@ class ProjPlayer
         int $amount = 100
     ): void {
         $this->name = $name;
-        $this->wallet->setBalance($amount);
+        $this->wallet->addBalance($amount);
     }
 
-    public function resetPlayerHands(): void {
+    public function resetPlayerHands(): void
+    {
         $this->hands = [];
     }
 

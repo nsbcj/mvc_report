@@ -13,6 +13,12 @@ class ProjWallet
 
     public function setBalance(int $amount): void
     {
+        $this->balance = $amount;
+
+    }
+
+    public function addBalance(int $amount): void
+    {
         $this->balance = $this->balance + $amount;
 
     }

@@ -1,0 +1,34 @@
+{# templates/proj/api.html.twig #}
+
+{% extends('proj/base.html.twig') %}
+
+{% block title %}Projektets api:er{% endblock %}
+
+{% block content %}
+    <div class="main-title">
+        <h1>Projektets api:er</h1>
+    </div>
+
+    <div class="main-content">
+        <h2>Api:er</h2>
+        <p>Nedan listas länkar till projektets api:er</p>
+        <form action="{{ path("projectDeckApi") }}" method="get">
+            <input class="button" type="submit" value="Visa projektets kortlek">
+        </form>
+        <form action="{{ path("projectPlayerApi") }}" method="get">
+            <input class="button" type="submit" value="Visa tre händer med kort">
+        </form>
+        <form action="{{ path("projectSessionApi") }}" method="get">
+            <input class="button" type="submit" value="Visa data från aktuell spelsession">
+        </form>
+        <form action="{{ path("projectPlayerBalanceApi") }}" method="post">
+            <input type="number" name="balance" id="balance" min=10 max=1000 required placeholder="Skriv in kontobalans">
+            <input class="button" type="submit" value="Sätt och visa en spelares kontobalans">
+        </form>
+        <form action="{{ path("projectInitGameApi") }}" method="post">
+            <input type="number" name="hands" id="hands" min=1 max=3 required placeholder="Ange önskat antal spelande händer, 1-3">
+            <input class="button" type="submit" value="Initierad spelrunda">
+        </form>
+    </div>
+</div>
+{% endblock %}

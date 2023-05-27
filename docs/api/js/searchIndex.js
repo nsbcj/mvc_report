@@ -1091,6 +1091,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Project-ProjWallet.html#method_setBalance"
         },                {
+            "fqsen": "\\App\\Project\\ProjWallet\u003A\u003AaddBalance\u0028\u0029",
+            "name": "addBalance",
+            "summary": "",
+            "url": "classes/App-Project-ProjWallet.html#method_addBalance"
+        },                {
             "fqsen": "\\App\\Project\\ProjWallet\u003A\u003AwithdrawBalance\u0028\u0029",
             "name": "withdrawBalance",
             "summary": "",
@@ -1105,6 +1110,41 @@ Search.appendIndex(
             "name": "balance",
             "summary": "",
             "url": "classes/App-Project-ProjWallet.html#property_balance"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjApiControllerJson",
+            "name": "ProjApiControllerJson",
+            "summary": "",
+            "url": "classes/App-Controller-ProjApiControllerJson.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjApiControllerJson\u003A\u003AprojApi\u0028\u0029",
+            "name": "projApi",
+            "summary": "",
+            "url": "classes/App-Controller-ProjApiControllerJson.html#method_projApi"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjApiControllerJson\u003A\u003AgetProjDeckApi\u0028\u0029",
+            "name": "getProjDeckApi",
+            "summary": "",
+            "url": "classes/App-Controller-ProjApiControllerJson.html#method_getProjDeckApi"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjApiControllerJson\u003A\u003AgetProjPlayerApi\u0028\u0029",
+            "name": "getProjPlayerApi",
+            "summary": "",
+            "url": "classes/App-Controller-ProjApiControllerJson.html#method_getProjPlayerApi"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjApiControllerJson\u003A\u003AgetProjSessionApi\u0028\u0029",
+            "name": "getProjSessionApi",
+            "summary": "",
+            "url": "classes/App-Controller-ProjApiControllerJson.html#method_getProjSessionApi"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjApiControllerJson\u003A\u003AsetAndGetProjPlayerBalanceApi\u0028\u0029",
+            "name": "setAndGetProjPlayerBalanceApi",
+            "summary": "",
+            "url": "classes/App-Controller-ProjApiControllerJson.html#method_setAndGetProjPlayerBalanceApi"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjApiControllerJson\u003A\u003AgetProjInitGameApi\u0028\u0029",
+            "name": "getProjInitGameApi",
+            "summary": "",
+            "url": "classes/App-Controller-ProjApiControllerJson.html#method_getProjInitGameApi"
         },                {
             "fqsen": "\\",
             "name": "\\",

@@ -142,7 +142,7 @@ class ProjGame
           {
               foreach ($this->player->hands as $hand) {
                   $this->winners[] = $this->checkWinner($hand);
-                  $this->player->wallet->setBalance($this->checkWinner($hand)["return"]);
+                  $this->player->wallet->addBalance($this->checkWinner($hand)["return"]);
               }
           }
 }

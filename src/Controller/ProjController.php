@@ -284,8 +284,6 @@ class ProjController extends AbstractController
         if(isset($game)) {
             $game->player->addHand($bet);
 
-            // $game->player->wallet->setBalance(-$bet);
-
             $session->set("game", $game);
 
             $this->addFlash(
@@ -309,7 +307,7 @@ class ProjController extends AbstractController
             foreach ($game->player->hands as $hand) {
                 $hand->add($game->deck);
                 $hand->add($game->deck);
-                $game->player->wallet->setBalance(-$hand->bet);
+                $game->player->wallet->withdrawBalance($hand->bet);
             }
 
             $game->house->addHandWithoutBet();
