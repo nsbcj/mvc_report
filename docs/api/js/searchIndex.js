@@ -241,11 +241,6 @@ Search.appendIndex(
             "summary": "Calculating\u0020if\u0020house\u0020should\u0020draw\u0020more\u0020cards,\u0020depending\u0020on\u0020draw\u0020percentage.\u0020House\u0020is\u0020set\u0020to\u0020draw\u0020if\u0020drawpercentage\u0020is\u0020equal\u0020to\u0020or\u0020greater\u0020than\u002050\u0025.",
             "url": "classes/App-CardGame-CardGame.html#method_houseDraw"
         },                {
-            "fqsen": "\\App\\CardGame\\CardGame\u003A\u003AhouseDrawProj\u0028\u0029",
-            "name": "houseDrawProj",
-            "summary": "Calculating\u0020if\u0020house\u0020should\u0020draw\u0020more\u0020cards,\u0020depending\u0020on\u0020draw\u0020percentage.\u0020House\u0020is\u0020set\u0020to\u0020draw\u0020if\u0020drawpercentage\u0020is\u0020equal\u0020to\u0020or\u0020greater\u0020than\u002050\u0025.",
-            "url": "classes/App-CardGame-CardGame.html#method_houseDrawProj"
-        },                {
             "fqsen": "\\App\\CardGame\\CardGame\u003A\u003AcheckPlayerHand\u0028\u0029",
             "name": "checkPlayerHand",
             "summary": "Checks\u0020if\u0020player\u0020or\u0020house\u0020hand\u0020has\u0020att\u0020total\u0020sum\u0020less\u0020or\u0020equal\u0020to\u002021.\u0020Returns\u0020boolean.",

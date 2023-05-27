@@ -24,10 +24,11 @@ class ProjPlayer
     }
 
     public function setPlayer(
-        string $name = "Player 1"
+        string $name = "Player 1",
+        int $amount = 100
     ): void {
         $this->name = $name;
-        $this->wallet->setBalance(100);
+        $this->wallet->setBalance($amount);
     }
 
     public function resetPlayerHands(): void {
@@ -132,6 +133,7 @@ class ProjPlayer
         $activeHand = $this->hands[$idx];
         $first = $activeHand->getCards()[0];
         $second = $activeHand->getCards()[1];
+        $this->hands[$idx]->resetHand();
         $this->hands[$idx]->setCard($first);
         $this->addHand($activeHand->bet, $second);
         $lastHand = array_pop($this->hands);

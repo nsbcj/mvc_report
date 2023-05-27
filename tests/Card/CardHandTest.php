@@ -144,4 +144,26 @@ class CardHandTest extends TestCase
 
         $this->assertEquals($handAsString, []);
     }
+
+    /**
+     * Test double bet
+     */
+    public function testDoubleBetOfCardHand()
+    {
+        $hand = new CardHand();
+
+        $deck = new DeckOfCards();
+
+        $deck->init();
+
+        $hand->add($deck);
+
+        $hand->add($deck);
+
+        $hand->setBet(10);
+
+        $hand->doubleBet();
+
+        $this->assertEquals(20, $hand->bet);
+    }
 }

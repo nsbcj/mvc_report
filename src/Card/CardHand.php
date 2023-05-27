@@ -29,7 +29,7 @@ class CardHand
     public function setCard(
         CardGraphic $card
     ): void {
-        $this->series = [$card];
+        $this->series[] = $card;
     }
 
     /**
@@ -87,7 +87,7 @@ class CardHand
     {
         $sum = 0;
         $values = $this->getHandValues();
-        $descValues = krsort($values);
+        rsort($values);
         foreach ($values as $value) {
             switch ($value) {
                 case $value > 10:

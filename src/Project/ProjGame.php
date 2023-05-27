@@ -84,7 +84,7 @@ class ProjGame
         {
             $sum = 0;
 
-            while($sum < 17) {
+            while($sum <= 17) {
                 $this->house->drawWithoutBet($this->deck);
 
                 $sum = $this->house->getTotalHandSums();
@@ -107,12 +107,12 @@ class ProjGame
              $houseHandSum = $this->house->getTotalHandSums();
              $playerUnder = ($playerHandSum <= 21);
              $houseUnder = ($houseHandSum <= 21);
-             $HandLengthIsTwo = (count($cardHand->getHandAsString()) == 2);
+             $handLengthIsTwo = (count($cardHand->getHandAsString()) == 2);
              switch ($cardHand) {
                  case !$playerUnder:
                      $res["winner"] = false;
                      break;
-                 case ($HandLengthIsTwo && $playerHandSum == 21 && $houseHandSum != 21):
+                 case ($handLengthIsTwo && $playerHandSum == 21 && $houseHandSum != 21):
                      $res["winner"]= true;
                      $res["return"] = $cardHand->bet * 2.5;
                      break;
