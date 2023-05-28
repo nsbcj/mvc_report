@@ -2,6 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Players;
+use App\Entity\Stats;
+use Doctrine\Persistence\ManagerRegistry;
+use App\Repository\PlayersRepository;
+use App\Repository\StatsRepository;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,6 +26,9 @@ class ProjController extends AbstractController
      * @Route("/proj", name="project", methods="GET")
      */
     public function project(
+        ManagerRegistry $doctrine,
+        PlayersRepository $playersRepository,
+        StatsRepository $statsRepository,
         SessionInterface $session
     ): Response {
         $game = $session->get("game") ?? null;
@@ -27,11 +36,16 @@ class ProjController extends AbstractController
         $data = [];
 
         if (!isset($game)) {
+            $players = $playersRepository->findAll();
+            $stats = $statsRepository->findAll();
+            $data["players"] = $players;
+            $data["stats"] = $stats;
+
             $this->addFlash(
                 "notice",
                 "Starta ett nytt spel genom att skriva in ett spelarnamn nedan"
             );
-            return $this->render('proj/index.html.twig');
+            return $this->render('proj/index.html.twig', $data);
         }
 
         $data["house"] = $game->house->name;
@@ -47,6 +61,45 @@ class ProjController extends AbstractController
         $data["done"] = $game->done;
         $data["winners"] = $game->winners;
 
+        if($game->done) {
+            // Save player balance to database
+            $player = $playersRepository->findOneBy(["name"=>$game->player->name]);
+            $player->setBalance($game->player->wallet->getBalance());
+
+            $playersRepository->save($player, true);
+
+            // Save round statistics to database
+            $winnerCount = count(array_filter($game->winners, function ($hand) {
+                return $hand["winner"];
+            }));
+
+            $tieCount = count(array_filter($game->winners, function ($hand) {
+                return $hand["tie"];
+            }));
+
+            $totalBet = array_reduce($data["playerHands"], function ($sum, $hand) {
+                $sum += $hand["handBet"];
+                return $sum;
+            });
+
+            $totalReturn = array_reduce($game->winners, function ($sum, $hand) {
+                $sum += $hand["return"];
+                return $sum;
+            });
+
+            $entityManager = $doctrine->getManager();
+            $stats = new Stats();
+            $stats->setHands($game->player->getCountOfHands());
+            $stats->setWins($winnerCount);
+            $stats->setTies($tieCount);
+            $stats->setTotalbet($totalBet);
+            $stats->setTotalreturn($totalReturn);
+
+            $entityManager->persist($stats);
+
+            $entityManager->flush();
+        }
+
         return $this->render('proj/index.html.twig', $data);
     }
 
@@ -59,13 +112,50 @@ class ProjController extends AbstractController
     }
 
     /**
+     * @Route("/proj/player/delete", name="projectDeletePlayer", methods="POST")
+     */
+    public function projectDeletePlayer(
+        PlayersRepository $playersRepository,
+        SessionInterface $session,
+        Request $request
+    ): Response {
+        $name = $request->request->get("name") ?? null;
+
+        $player = $playersRepository->findOneBy(["name"=>$name]);
+
+        $playersRepository->remove($player, true);
+
+        $this->addFlash(
+            "warning",
+            "{$name}:s konto har loggats ut och tagits bort"
+        );
+
+        $session->set("game", null);
+
+        return $this->redirectToRoute("project");
+    }
+
+    /**
      * @Route("/proj/init", name="projectInit", methods="POST")
      */
     public function projectInit(
+        PlayersRepository $playersRepository,
+        ManagerRegistry $doctrine,
         SessionInterface $session,
         Request $request
     ): Response {
         $player = $request->request->get("name") ?? null;
+        $start = $request->request->get("start") ?? null;
+        $balance = $request->request->get("balance") ?? null;
+        $playerDb = $playersRepository->findOneBy(["name"=>$player]) ?? null;
+        if(isset($playerDb) && isset($start)) {
+            $this->addFlash(
+                "warning",
+                "Spelarnamn {$player} är redan taget, välj ett annat"
+            );
+            return $this->redirectToRoute("project");
+        }
+
         $house = "Huset";
 
         if(isset($player)) {
@@ -73,6 +163,29 @@ class ProjController extends AbstractController
             $game->init();
             $game->player->setPlayer($player);
             $game->house->setPlayer($house);
+
+            if(!isset($playerDb) && isset($start)) {
+                $entityManager = $doctrine->getManager();
+
+                $players = new Players();
+
+                $players->setName($game->player->name);
+
+                $players->setBalance($game->player->wallet->getBalance());
+
+                $entityManager->persist($players);
+
+                $entityManager->flush();
+
+                $this->addFlash(
+                    "notice",
+                    "Spelarnamn {$player} är tillagt"
+                );
+            }
+
+            if(isset($balance)) {
+                $game->player->wallet->setBalance($balance);
+            }
 
             $session->set("game", $game);
         }
@@ -118,7 +231,7 @@ class ProjController extends AbstractController
                 $game->player->hold();
                 $this->addFlash(
                     "warning",
-                    "Player got over 21"
+                    "Spelaren fick över 21"
                 );
             }
 
@@ -131,13 +244,13 @@ class ProjController extends AbstractController
 
                 $this->addFlash(
                     "notice",
-                    "House played hand"
+                    "Huset spelade sin hand"
                 );
             }
 
             $this->addFlash(
                 "notice",
-                "Player drawed a new card"
+                "Spelaren drog ett kort"
             );
 
             $session->set("game", $game);
@@ -169,7 +282,7 @@ class ProjController extends AbstractController
 
                 $this->addFlash(
                     "notice",
-                    "House played hand"
+                    "Huset spelade sin hand"
                 );
             }
 
@@ -196,7 +309,7 @@ class ProjController extends AbstractController
             if($game->player->wallet->getBalance() < $bet) {
                 $this->addFlash(
                     "warning",
-                    "{$game->player->name} balance is not enough to split"
+                    "{$game->player->name} har inte tillräcklig balans för att splitta"
                 );
 
                 return $this->redirectToRoute("project");
@@ -209,7 +322,7 @@ class ProjController extends AbstractController
 
             $this->addFlash(
                 "notice",
-                "Player splitted hand, by {$game->player->name}"
+                "{$game->player->name} splittade handen"
             );
         }
 
@@ -233,7 +346,7 @@ class ProjController extends AbstractController
             if($game->player->wallet->getBalance() < $bet) {
                 $this->addFlash(
                     "warning",
-                    "{$game->player->name} balance is not enough to double"
+                    "{$game->player->name} balans är inte tillräcklig för att dubbla"
                 );
 
                 return $this->redirectToRoute("project");
@@ -255,7 +368,7 @@ class ProjController extends AbstractController
 
                 $this->addFlash(
                     "notice",
-                    "Player doubled, drawed card and House played hand"
+                    "Spelaren dubblade, spelade ett kort och huset spelade sin hand"
                 );
             }
 
@@ -263,7 +376,7 @@ class ProjController extends AbstractController
 
             $this->addFlash(
                 "notice",
-                "Player doubled. Additional {$bet} is added to bet and card is drawed, by {$game->player->name}"
+                "{$game->player->name} dubblade. {$bet} lades till i handen och ett kort drogs"
             );
         }
 
@@ -288,7 +401,7 @@ class ProjController extends AbstractController
 
             $this->addFlash(
                 "notice",
-                "Added hand with bet {$bet}, by {$game->player->name}"
+                "{$game->player->name} Lade till hand med {$bet} som insats"
             );
         }
 
@@ -320,7 +433,7 @@ class ProjController extends AbstractController
 
             $this->addFlash(
                 "notice",
-                "Game started, by {$game->player->name}"
+                "{$game->player->name} startade spelet"
             );
         }
 
@@ -350,7 +463,7 @@ class ProjController extends AbstractController
 
             $this->addFlash(
                 "notice",
-                "New round is initiated by {$game->player->name}"
+                "En ny runda startades av {$game->player->name}"
             );
         }
 

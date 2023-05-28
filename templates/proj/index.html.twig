@@ -24,6 +24,10 @@
             <form action="{{ path('projectReset') }}" method="post">
                 <input class="button reset" type="submit" name="reset" value="Återställ runda">
             </form>
+            <form action="{{ path('projectDeletePlayer') }}" method="post">
+                <input type="hidden" name="name" value="{{ player }}">
+                <input class="button delete" type="submit" name="delete" value="Ta bort kontot">
+            </form>
         </div>
         <div class="main-card-table">
             <div class="proj-card-table-grid">
@@ -143,6 +147,57 @@
                 <input class="button init" type="submit" name="start" value="Starta">
             </form>
         </fieldset>
+        {% if players is defined %}
+        <fieldset>
+            <h3>Alternativt spela med en registrerad spelare</h3>
+            <div class="players-container">
+                {% for player in players %}
+                <form class="login" action="{{ path('projectInit') }}" method="post" data-balance="{{ player.balance }}">
+                <input type="hidden" name="balance" value="{{ player.balance }}">
+                <input class="button login" type="submit" name="name" value="{{ player.name }}">
+                </form>
+                {% endfor %}
+            </div>
+        </fieldset>
+        {% if stats is defined %}
+        <fieldset>
+            <h3>Statistik</h3>
+            {% set totalbet = stats|reduce((sum, stat) => sum + stat.totalbet) %}
+            {% set totalreturn = stats|reduce((sum, stat) => sum + stat.totalreturn) %}
+            {% set handcount = stats|reduce((sum, stat) => sum + stat.hands) %}
+            {% set wincount = stats|reduce((sum, stat) => sum + stat.wins) %}
+            {% set tiecount = stats|reduce((sum, stat) => sum + stat.ties) %}
+            {% set totalrevenue = totalreturn - totalbet %}
+            {% set loosecount = handcount - (wincount + tiecount) %}
+            <div class="stats">
+                <div class="stats-container">
+                    <h4>Spelade händer</h4>
+                    <span class="stats-stat">{{ handcount }}</span>
+                </div>
+                <div class="stats-container">
+                    <h4>Vinster</h4>
+                    <span class="stats-stat profit">{{ wincount }}</span>
+                </div>
+                <div class="stats-container">
+                    <h4>Lika</h4>
+                    <span class="stats-stat">{{ tiecount }}</span>
+                </div>
+                <div class="stats-container">
+                    <h4>Förluster</h4>
+                    <span class="stats-stat loss">{{ loosecount }}</span>
+                </div>
+                <div class="stats-container">
+                    <h4>Förtjänst</h4>
+                {% if totalrevenue > 0 %}
+                    <span class="stats-stat profit">{{ totalrevenue }}</span>
+                {% else %}
+                    <span class="stats-stat loss">{{ totalrevenue }}</span>
+                {% endif %}
+                </div>
+            </div>
+        </fieldset>
+        {% endif %}
+        {% endif %}
         {% endif %}
     </div>
 </div>
