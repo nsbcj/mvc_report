@@ -19,6 +19,7 @@ use App\Card\DeckOfCards;
 use App\Card\CardHand;
 use App\Project\ProjDeckOfCards;
 use App\Project\ProjGame;
+use ParsedownExtra;
 
 class ProjController extends AbstractController
 {
@@ -108,7 +109,33 @@ class ProjController extends AbstractController
      */
     public function projectAbout(): Response
     {
-        return $this->render('proj/about.html.twig');
+        $parsedown = new ParsedownExtra();
+
+        $file = "content/project/about.md";
+
+        $data = [
+            "title" => "Om projektet",
+            "doc" => $parsedown -> text(file_get_contents($file))
+        ];
+
+        return $this->render('proj/about.html.twig', $data);
+    }
+
+    /**
+     * @Route("/proj/about/aboutdb", name="projectAboutDatabase", methods="GET")
+     */
+    public function projectAboutDb(): Response
+    {
+        $parsedown = new ParsedownExtra();
+
+        $file = "content/project/aboutdb.md";
+
+        $data = [
+            "title" => "Databas i projektet",
+            "doc" => $parsedown -> text(file_get_contents($file))
+        ];
+
+        return $this->render('proj/about.html.twig', $data);
     }
 
     /**
@@ -368,16 +395,11 @@ class ProjController extends AbstractController
 
                 $this->addFlash(
                     "notice",
-                    "Spelaren dubblade, spelade ett kort och huset spelade sin hand"
+                    "{$game->player->name} dubblade, spelade ett kort och huset spelade sin hand"
                 );
             }
 
             $session->set("game", $game);
-
-            $this->addFlash(
-                "notice",
-                "{$game->player->name} dubblade. {$bet} lades till i handen och ett kort drogs"
-            );
         }
 
         return $this->redirectToRoute("project");

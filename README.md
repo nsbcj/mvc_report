@@ -2,7 +2,7 @@ Detta repo har skapats inom ramen för kursen [MVC](https://dbwebb.se/kurser/mvc
 
 Kursen har berört PHP-ramverket Symfony, objektorienterad programmering, testning, databas samt analys av kod. Under kursens gång har bland annat mindre applikationer skrivits.
 
-Följande är de badges kopplade till delar av de analyser av kodkvalitet som gjorts:
+Följande är badges kopplade till delar av de analyser av kodkvalitet som gjorts:
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/nsbcj/mvc_report/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/nsbcj/mvc_report/?branch=main)
 [![Code Coverage](https://scrutinizer-ci.com/g/nsbcj/mvc_report/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/nsbcj/mvc_report/?branch=main)
@@ -14,9 +14,10 @@ För att klona report använd följande kommando:
 git clone https://github.com/nsbcj/mvc_report.git
 ```
 
-Efter att ha klonat repot, starta webbplatsen genom att använda följande kommando i repot rot-folder:
+Efter att ha klonat repot, starta webbplatsen genom att använda följande kommando i repots rot-folder:
 ```
 composer install
+npm install
 npm run build
 php -S localhost:<port> -t public
 ```

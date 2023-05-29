@@ -936,6 +936,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-ProjController.html#method_projectAbout"
         },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AprojectAboutDb\u0028\u0029",
+            "name": "projectAboutDb",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_projectAboutDb"
+        },                {
             "fqsen": "\\App\\Controller\\ProjController\u003A\u003AprojectDeletePlayer\u0028\u0029",
             "name": "projectDeletePlayer",
             "summary": "",
