@@ -78,9 +78,9 @@ class ProjGame
         */
         public function autoPlay(): void
         {
-            $sum = 0;
+            $sum = $this->house->getTotalHandSums();
 
-            while($sum <= 17) {
+            while($sum < 17) {
                 $this->house->drawWithoutBet($this->deck);
 
                 $sum = $this->house->getTotalHandSums();
