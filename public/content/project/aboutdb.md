@@ -1,6 +1,3 @@
-##ER-diagram
-![er-diagram](/img/er.png){.no-margin-inline}
-
 ##Beskrivning av tabeller
 ###Players-tabell
 Tabellen innehåller kolumner för att spara spelarnamn ("name") och spelarens kontobalans ("balance").

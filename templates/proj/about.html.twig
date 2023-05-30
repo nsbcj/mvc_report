@@ -10,6 +10,10 @@
     </div>
 
     <div class="main-content">
+        {% if img is defined %}
+            <h2>ER-diagram</h2>
+            <img class="no-margin-inline" src="{{ asset(img) }}" alt="Bild">
+        {% endif %}
         {{ doc | raw }}
     </div>
 </div>

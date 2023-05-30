@@ -132,6 +132,7 @@ class ProjController extends AbstractController
 
         $data = [
             "title" => "Databas i projektet",
+            "img" => "img/er.png",
             "doc" => $parsedown -> text(file_get_contents($file))
         ];
 
