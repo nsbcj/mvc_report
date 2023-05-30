@@ -9,9 +9,9 @@ use App\Card\CardHand;
 
 class ProjGame
 {
-    public ?object $player;
-    public ?object $house;
-    public ?object $deck;
+    public object $player;
+    public object $house;
+    public object $deck;
     /**
      * @var array<string, bool|float|int>
      */
@@ -24,9 +24,9 @@ class ProjGame
      */
     public function __construct()
     {
-        $this->player = null;
-        $this->house = null;
-        $this->deck = null;
+        $this->player = new ProjPlayer();
+        $this->house = new ProjPlayer();
+        $this->deck = new ProjDeckOfCards();
         $this->winners = null;
         $this->start = false;
         $this->done = false;
@@ -37,10 +37,6 @@ class ProjGame
     */
     public function init(): void
     {
-        $this->player = new ProjPlayer();
-        $this->house = new ProjPlayer();
-        $this->deck = new ProjDeckOfCards();
-
         $this->deck->init();
         $this->deck->shuffle();
     }
