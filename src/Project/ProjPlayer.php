@@ -192,7 +192,7 @@ class ProjPlayer
 
     /**
      * method returning CardHand as array of strings, the sum of Cards, the bets in CardHand and if the CardHand is splitable
-     * @return array<int<0, max>, array<string, mixed>>
+     * @return array<int <0, max>, array <string, mixed>>
      */
     public function getHandsAsStringAndSumAndBet(): array
     {
