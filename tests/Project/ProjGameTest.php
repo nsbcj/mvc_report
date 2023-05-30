@@ -290,7 +290,7 @@ class ProjGameTest extends TestCase
 
         $game->house->hands[0]->setCard($cardThird);
 
-        $res = $game->checkWinner($game->player->hands[0]);
+        $res = $game->checkWinner($game->house->hands[0]);
 
         $this->assertEquals(false, $res["winner"]);
 

@@ -87,7 +87,7 @@ class CardHand
     {
         $sum = 0;
         $values = $this->getHandValues();
-        rsort($values);
+        sort($values);
         foreach ($values as $value) {
             switch ($value) {
                 case $value > 10:
