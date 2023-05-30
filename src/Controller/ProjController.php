@@ -253,7 +253,7 @@ class ProjController extends AbstractController
 
             $game->player->draw($deck);
 
-            $currentValue = $game->player->hands[$game->player->getActiveHandIndex()]->getHandSum();
+            $currentValue = $game->player->hands[$game->player->getActiveHandIndex()]->getProjHandSum();
 
             if ($currentValue > 21) {
                 $game->player->hold();
