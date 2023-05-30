@@ -9,20 +9,26 @@ use App\Project\ProjWallet;
 
 class ProjPlayer
 {
-    public string|null $name;
+    public string $name;
     /**
      * @var array<object>
      */
     public array $hands;
     public object $wallet;
 
+    /**
+     * method constructing ProjPlayer object
+     */
     public function __construct()
     {
-        $this->name = null;
+        $this->name = "";
         $this->hands = [];
         $this->wallet = new ProjWallet();
     }
 
+    /**
+     * method setting ProjPlayer name and balance
+     */
     public function setPlayer(
         string $name = "Player 1",
         int $amount = 100
@@ -31,12 +37,16 @@ class ProjPlayer
         $this->wallet->addBalance($amount);
     }
 
+    /**
+     * method reseting ProjPlayer hands
+     */
     public function resetPlayerHands(): void
     {
         $this->hands = [];
     }
 
     /**
+     * method getting ProjPlayer hands
      * @return array<object>
      */
     public function getHands(): array
@@ -44,6 +54,9 @@ class ProjPlayer
         return $this->hands;
     }
 
+    /**
+     * method adding CardHand with bet to hands. Optional parameter to set specific CardGrapic
+     */
     public function addHand(
         int $bet,
         ?CardGraphic $card = null
@@ -60,6 +73,7 @@ class ProjPlayer
     }
 
     /**
+     * method returning array with CardHands still in play
      * @return array<object>
      */
     public function getActiveHands(): array
@@ -73,6 +87,9 @@ class ProjPlayer
         return $res;
     }
 
+    /**
+     * method getting index of current CardHand in play
+     */
     public function getActiveHandIndex(): ?int
     {
         $countActiveHands = count($this->getActiveHands());
@@ -82,6 +99,9 @@ class ProjPlayer
         return -1;
     }
 
+    /**
+     * method checking if any active CardHands still in play
+     */
     public function checkPlayerDone(): bool
     {
         return ($this->getCountOfHands() > 0 && $this->getActiveHandIndex() == -1);
@@ -99,12 +119,18 @@ class ProjPlayer
         }
     }
 
+    /**
+     * method adding a CardHand to hands without a bet
+     */
     public function addHandWithoutBet(): void
     {
         $cardHand = new CardHand();
         $this->hands[] = $cardHand;
     }
 
+    /**
+     * method drawing Card from CardHand in hands without a bet
+     */
     public function drawWithoutBet(
         ProjDeckOfCards $deck
     ): void {
@@ -114,6 +140,9 @@ class ProjPlayer
         }
     }
 
+    /**
+     * method to hold CardHand
+     */
     public function hold(): void
     {
         $start = $this->getCountOfHands() - 1;
@@ -126,6 +155,7 @@ class ProjPlayer
     }
 
     /**
+     * method splitting activehand. Adds a new CardHand at active position and pops Card from splitted CardHand. Popped Card is inserted into the new CardHand
      * @return void
      */
     public function splitPlayerHand(
@@ -141,6 +171,9 @@ class ProjPlayer
         array_splice($this->hands, $idx, 0, [$lastHand]);
     }
 
+    /**
+     * method getting sum of values in CardHand
+     */
     public function getPlayerHandSum(
         CardHand $cardHand
     ): int {
@@ -148,6 +181,7 @@ class ProjPlayer
     }
 
     /**
+     * method getting bet of CardHand
      * @return int
      */
     public function getCardHandBet(
@@ -157,6 +191,7 @@ class ProjPlayer
     }
 
     /**
+     * method returning CardHand as array of strings, the sum of Cards, the bets in CardHand and if the CardHand is splitable
      * @return array<int<0, max>, array<string, mixed>>
      */
     public function getHandsAsStringAndSumAndBet(): array
@@ -176,6 +211,7 @@ class ProjPlayer
     }
 
     /**
+     * method returning sums of CardHands in hands in an array.
      * @return array<int>
      */
     public function getHandSums(): array
@@ -189,6 +225,9 @@ class ProjPlayer
         return $res;
     }
 
+    /**
+     * method returning sum of all hands. Calculates sum of house hands.
+     */
     public function getTotalHandSums(): int
     {
         $res = 0;
@@ -201,6 +240,7 @@ class ProjPlayer
     }
 
     /**
+     * method returning count of CardHands in hands
      * @return int
      */
     public function getCountOfHands(): int

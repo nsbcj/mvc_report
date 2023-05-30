@@ -78,7 +78,7 @@ class ProjGame
        }
 
        /**
-        * autoPlay method for CardHand
+        * autoPlay method for house CardHand
         */
         public function autoPlay(): void
         {
@@ -92,7 +92,7 @@ class ProjGame
         }
 
         /**
-         * return if cardHand is winner
+         * return if Player cardHand is winner and calculate return
          * @return array<string, bool|float|int> res
          */
          public function checkWinner(

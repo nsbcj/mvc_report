@@ -1048,12 +1048,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Project\\ProjGame\u003A\u003AautoPlay\u0028\u0029",
             "name": "autoPlay",
-            "summary": "autoPlay\u0020method\u0020for\u0020CardHand",
+            "summary": "autoPlay\u0020method\u0020for\u0020house\u0020CardHand",
             "url": "classes/App-Project-ProjGame.html#method_autoPlay"
         },                {
             "fqsen": "\\App\\Project\\ProjGame\u003A\u003AcheckWinner\u0028\u0029",
             "name": "checkWinner",
-            "summary": "return\u0020if\u0020cardHand\u0020is\u0020winner",
+            "summary": "return\u0020if\u0020Player\u0020cardHand\u0020is\u0020winner\u0020and\u0020calculate\u0020return",
             "url": "classes/App-Project-ProjGame.html#method_checkWinner"
         },                {
             "fqsen": "\\App\\Project\\ProjGame\u003A\u003AsetWinners\u0028\u0029",
@@ -1093,27 +1093,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Project\\ProjWallet\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "method\u0020constructing\u0020ProjWallet\u0020object",
             "url": "classes/App-Project-ProjWallet.html#method___construct"
         },                {
             "fqsen": "\\App\\Project\\ProjWallet\u003A\u003AsetBalance\u0028\u0029",
             "name": "setBalance",
-            "summary": "",
+            "summary": "method\u0020setting\u0020balance",
             "url": "classes/App-Project-ProjWallet.html#method_setBalance"
         },                {
             "fqsen": "\\App\\Project\\ProjWallet\u003A\u003AaddBalance\u0028\u0029",
             "name": "addBalance",
-            "summary": "",
+            "summary": "method\u0020adding\u0020balance\u0020to\u0020balance",
             "url": "classes/App-Project-ProjWallet.html#method_addBalance"
         },                {
             "fqsen": "\\App\\Project\\ProjWallet\u003A\u003AwithdrawBalance\u0028\u0029",
             "name": "withdrawBalance",
-            "summary": "",
+            "summary": "method\u0020withdrawing\u0020balance\u0020from\u0020balance",
             "url": "classes/App-Project-ProjWallet.html#method_withdrawBalance"
         },                {
             "fqsen": "\\App\\Project\\ProjWallet\u003A\u003AgetBalance\u0028\u0029",
             "name": "getBalance",
-            "summary": "",
+            "summary": "method\u0020getting\u0020balance",
             "url": "classes/App-Project-ProjWallet.html#method_getBalance"
         },                {
             "fqsen": "\\App\\Project\\ProjWallet\u003A\u003A\u0024balance",
