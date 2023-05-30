@@ -9,7 +9,9 @@ Följande är badges kopplade till delar av de analyser av kodkvalitet som gjort
 [![Build Status](https://scrutinizer-ci.com/g/nsbcj/mvc_report/badges/build.png?b=main)](https://scrutinizer-ci.com/g/nsbcj/mvc_report/build-status/main)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/nsbcj/mvc_report/badges/code-intelligence.svg?b=main)](https://scrutinizer-ci.com/code-intelligence)
 
-För att klona report använd följande kommando:
+Vid behov skapa en ny folder för projektet.
+
+I vald folder, klona sidan genom att använda följande kommando:
 ```
 git clone https://github.com/nsbcj/mvc_report.git
 ```
